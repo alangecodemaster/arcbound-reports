@@ -10,13 +10,15 @@ h2{font-size: 30px; text-transform: uppercase; color: var(--blue); line-height: 
 h2 span{display: block;}
 h2 span:first-child{color: var(--orange); font-size: 20px; font-weight: lighter;}
 h2:after{background: linear-gradient(96deg, #00807e 0%, #6bd7d4 100%); content: ''; display: block; height: 5px; width: 100%; margin: 15px 0; width: 330px;}
-first-page, second-page{height: 11in; display: block;  width: 8.5in; margin: 0 auto; position: relative;}
+#main{width: 8.5in; margin: 0 auto; position: relative;}
+first-page, second-page{ display: block; position: relative; height: 11in;}
 
 
 /*Top Banner*/
 first-page:before{content: ''; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-image: linear-gradient(whitesmoke, whitesmoke, #d4eaea); z-index: -1; display: block;}
 first-page header{min-height: 215px; position: relative; color: white;}
-first-page header img{display: block; position: absolute; left: 0; right: 0; width: 100%; height: 100%; object-fit: cover; object-position: center center;}
+first-page header .bg{display: block; position: absolute; left: 0; right: 0; width: 100%; height: 100%; object-fit: cover; object-position: center center;}
+first-page header .logo{position: absolute;height: 25px; right: 100px; top: 15px;}
 first-page .content{position: relative; padding: 1% 0;}
 first-page header h1{letter-spacing: 3px; font-size: 40px; line-height: 1em; width: 260px; margin: 0.5em auto 0;}
 first-page header h1 span{display: block;}
@@ -62,12 +64,15 @@ first-page header .date{text-align: center; margin-top: 0; font-weight: bold;}
 .final-linkedin-reports .title-increase{flex-wrap: wrap;}
 .final-linkedin-reports .title-increase h3{width: 100%; line-height: 1em; margin-bottom: 15px;}
 
+
+/*Second Page*/
 second-page{padding-top: 5%;}
-
-
-footer{background-color: #020024; background-image: linear-gradient(24deg, black 59%, #182e45 85%); text-align: center; padding: 300px 0 25px;}
-
-
+second-page h2{margin-bottom: 0;}
+.more-content{width: 600px; margin: 0 auto;}
+second-page .tiger-stripes{position: absolute; bottom: 90px; left: 0; opacity: .1; width: 100px;}
+second-page .blue-swoosh{position: absolute; display: block; top: 0; z-index: -1; right: 0; transform: rotateY(180deg); width: 501px;}
+footer{background-color: #020024; background-image: linear-gradient(24deg, black 59%, #182e45 85%); text-align: center; padding: 45px 0 25px; position: absolute; bottom: 0; width: 100%;}
+footer img{height: 35px;}
 
 
 
