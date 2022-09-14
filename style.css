@@ -33,7 +33,7 @@ first-page header .date{text-align: center; margin-top: 0; font-weight: bold;}
 .linkedin .sidebar .indiv-metrics{padding: 1.06em 1em; color: white; text-transform: uppercase;}
 .linkedin .sidebar .indiv-metrics p{margin: 0;}
 .linkedin .sidebar .indiv-metrics .number{font-size: 30px; font-weight: bold;}
-.linkedin .sidebar .indiv-metrics .label{color: var(--blue);}
+.linkedin .sidebar .indiv-metrics .label{color: var(--blue); font-size: 14px}
 .linkedin .sidebar .indiv-metrics:nth-child(1){background: rgb(50 174 171 / 40%);}
 .linkedin .sidebar .indiv-metrics:nth-child(2){background: rgb(50 174 171 / 55%);}
 .linkedin .sidebar .indiv-metrics:nth-child(3){background: rgb(50 174 171 / 70%);}
