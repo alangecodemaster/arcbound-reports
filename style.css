@@ -7,9 +7,10 @@ img{max-width: 100%; height: auto;}
 	--orange: #ff9100;
 }
 
+
 /*Top Banner*/
 first-page{height: 11in; display: block;  width: 8.5in; margin: 0 auto; position: relative;}
-first-page:before{content: ''; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-image: linear-gradient(white, white, #d4eaea); z-index: -1; display: block;}
+first-page:before{content: ''; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-image: linear-gradient(whitesmoke, whitesmoke, #d4eaea); z-index: -1; display: block;}
 first-page header{min-height: 215px; position: relative; color: white;}
 first-page header img{display: block; position: absolute; left: 0; right: 0; width: 100%; height: 100%; object-fit: cover; object-position: center center;}
 first-page .content{position: relative; padding: 1% 0;}
@@ -20,9 +21,10 @@ first-page header .content{text-transform: uppercase;}
 first-page header .name{text-align: center; font-size: 25px; margin-bottom: 0;}
 first-page header .date{text-align: center; margin-top: 0; font-weight: bold;}
 
+
 /*LinkedIn Stats*/
 .linkedin{padding: 25px 0 0; background-image: url(images/circular-shape.png); background-size: 814px; background-position: 26px top; background-repeat: no-repeat; position: relative;}
-.linkedin h2{font-size: 30px; text-transform: uppercase; color: var(--blue); line-height: 1em; padding: 0 25px; margin: 0 0 2em;}
+.linkedin h2{font-size: 30px; text-transform: uppercase; color: var(--blue); line-height: 1em; padding: 0 25px; margin: 0 0 1em;}
 .linkedin h2 span{display: block;}
 .linkedin h2 span:first-child{color: var(--orange); font-size: 20px; font-weight: lighter;}
 .linkedin h2:after{background: linear-gradient(96deg, #00807e 0%, #6bd7d4 100%); content: ''; display: block; height: 5px; width: 100%; margin: 15px 0; width: 330px;}
@@ -38,21 +40,27 @@ first-page header .date{text-align: center; margin-top: 0; font-weight: bold;}
 .linkedin .sidebar .indiv-metrics:nth-child(4){background: rgb(50 174 172 / 85%);}
 .linkedin .sidebar .indiv-metrics:nth-child(5){background: #32aeab;}
 .linkedin-stats .stats-boxes{width: calc(100% - 215px); display: flex; flex-wrap: wrap; align-self: flex-start; justify-content: space-between; padding-right: 15px;}
-.linkedin .indiv-stat-box{width: calc(50% - 7.5px); background: white; padding: 1.5em 1em; box-shadow: 0 0 10px rgb(0 0 0 / 20%); border-radius: 4px;}
-.linkedin .indiv-stat-box:nth-child(1n + 3){margin-top: 15px;}
-.linkedin .title-increase{display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; color: var(--blue);}
-.linkedin .title-increase h3{margin: 0; font-size: 20px; text-transform: uppercase;}
-.linkedin .percent{display: block; background: #00cb86; color: white; border-radius: 500px; padding: 3px 5px; font-size: 13px; width: 45px; text-align: center;}
-.linkedin .percent.negative{background: #f3aa00;}
-.linkedin .numbers{display: grid; grid-gap: 10px; grid-template-columns: 1fr 1fr;}
-.linkedin .last-month{text-align: right;}
-.linkedin .current{text-align: left;}
-.linkedin .number{font-size: 30px; font-weight: bold;}
-.linkedin .current .number{color: #2a6b9f;}
-.linkedin .last-month .number{color: #59b8ea;}
-.linkedin .numbers span{display: block;}
-.linkedin .numbers span.date{font-size: 14px;}
+.indiv-stat-box{width: calc(50% - 7.5px); background: white; padding: 1.5em 1em; border-radius: 4px; }
+.indiv-stat-box:nth-child(1n + 3){margin-top: 15px;}
+.title-increase{display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; color: var(--blue);}
+.title-increase h3{margin: 0; font-size: 20px; text-transform: uppercase;}
+.percent{display: block; background: #00cb86; color: white; border-radius: 500px; padding: 3px 5px; font-size: 13px; width: 45px; text-align: center;}
+.percent.negative{background: #f3aa00;}
+.numbers{display: grid; grid-gap: 10px; grid-template-columns: 1fr 1fr;}
+.last-month{text-align: right;}
+.current{text-align: left;}
+.number{font-size: 30px; font-weight: bold;}
+.current .number{color: #2a6b9f;}
+.last-month .number{color: #59b8ea;}
+.numbers span{display: block;}
+.numbers span.date{font-size: 14px;}
 
+
+/*Final LinkedIn Report*/
+.final-linkedin-reports{display: grid; grid-gap: 15px; grid-template-columns: repeat(3, 1fr); margin-top: 15px; padding: 0 15px;}
+.final-linkedin-reports > div{border-radius: 4px; background: white; padding: 1em;}
+.final-linkedin-reports .title-increase{flex-wrap: wrap;}
+.final-linkedin-reports .title-increase h3{width: 100%; line-height: 1em; margin-bottom: 15px;}
 
 
 
