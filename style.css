@@ -6,10 +6,14 @@ img{max-width: 100%; height: auto;}
 	--blue: #102e46;
 	--orange: #ff9100;
 }
+h2{font-size: 30px; text-transform: uppercase; color: var(--blue); line-height: 1em; padding: 0 25px; margin: 0 0 1em;}
+h2 span{display: block;}
+h2 span:first-child{color: var(--orange); font-size: 20px; font-weight: lighter;}
+h2:after{background: linear-gradient(96deg, #00807e 0%, #6bd7d4 100%); content: ''; display: block; height: 5px; width: 100%; margin: 15px 0; width: 330px;}
+first-page, second-page{height: 11in; display: block;  width: 8.5in; margin: 0 auto; position: relative;}
 
 
 /*Top Banner*/
-first-page{height: 11in; display: block;  width: 8.5in; margin: 0 auto; position: relative;}
 first-page:before{content: ''; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-image: linear-gradient(whitesmoke, whitesmoke, #d4eaea); z-index: -1; display: block;}
 first-page header{min-height: 215px; position: relative; color: white;}
 first-page header img{display: block; position: absolute; left: 0; right: 0; width: 100%; height: 100%; object-fit: cover; object-position: center center;}
@@ -24,10 +28,6 @@ first-page header .date{text-align: center; margin-top: 0; font-weight: bold;}
 
 /*LinkedIn Stats*/
 .linkedin{padding: 25px 0 0; background-image: url(images/circular-shape.png); background-size: 814px; background-position: 26px top; background-repeat: no-repeat; position: relative;}
-.linkedin h2{font-size: 30px; text-transform: uppercase; color: var(--blue); line-height: 1em; padding: 0 25px; margin: 0 0 1em;}
-.linkedin h2 span{display: block;}
-.linkedin h2 span:first-child{color: var(--orange); font-size: 20px; font-weight: lighter;}
-.linkedin h2:after{background: linear-gradient(96deg, #00807e 0%, #6bd7d4 100%); content: ''; display: block; height: 5px; width: 100%; margin: 15px 0; width: 330px;}
 .linkedin-stats{display: flex; justify-content: space-between;}
 .linkedin-stats .sidebar{width: 200px; border-radius: 4px; overflow: hidden;}
 .linkedin .sidebar .indiv-metrics{padding: 1.06em 1em; color: white; text-transform: uppercase;}
@@ -61,6 +61,11 @@ first-page header .date{text-align: center; margin-top: 0; font-weight: bold;}
 .final-linkedin-reports > div{border-radius: 4px; background: white; padding: 1em;}
 .final-linkedin-reports .title-increase{flex-wrap: wrap;}
 .final-linkedin-reports .title-increase h3{width: 100%; line-height: 1em; margin-bottom: 15px;}
+
+second-page{padding-top: 5%;}
+
+
+footer{background-color: #020024; background-image: linear-gradient(24deg, black 59%, #182e45 85%); text-align: center; padding: 300px 0 25px;}
 
 
 
