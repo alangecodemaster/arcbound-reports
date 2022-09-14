@@ -1,0 +1,8 @@
+*{box-sizing: border-box; font-family: "Open Sans", sans-serif;}
+body, html{margin: 0; height: 0;}
+img{max-width: 100%; height: auto;}
+
+first-page{height: 11in; border-bottom: 13px solid blue; display: block; color: white; width: 8.5in; margin: 0 auto; background: #eee;}
+first-page header{min-height: 215px; position: relative;}
+first-page header img{display: block; position: absolute; left: 0; right: 0; width: 100%; height: 100%; object-fit: cover; object-position: center center;}
+first-page .content{position: relative; padding: 1% 0;}
