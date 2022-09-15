@@ -1,0 +1,22 @@
+#form-container{width: 700px; margin: 0 auto; color: var(--blue); padding-bottom: 5%;}
+#form-container h1, #form-container .form-description{text-align: center;}
+#form-container .form-description{font-size: 20px; margin-bottom: 2em;}
+#form-container ul{width: 500px; margin: 0 auto; padding: 0; list-style: none; display: grid; grid-gap: 25px;}
+#form-container ul input{display: block; width: 100%; border: none; border-bottom: 2px solid var(--blue); font-size: 20px; padding: 5px; outline: none;}
+#form-container p{margin: 0;}
+#form-container label{font-size: 18px; font-weight: bold;}
+#form-container button{position: relative; left: 100px; margin-top: 2em; background: var(--orange); color: white; border: none; padding: 15px 25px; text-transform: uppercase; font-weight: bold; cursor: pointer; box-shadow: 0 5px 10px rgb(0 0 0 / 30%); }
+#form-container .instructions-link{color: var(--orange); text-decoration: underline; cursor: pointer;}
+
+
+.popup{position: fixed; top: 0; left: 0; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%; transition: transform .25s; transform: scale(0);}
+.popup.active{transform: scale(1);}
+.popup .background{background: black; opacity: .8; position: absolute; left: 0; top: 0; width: 100%; height: 100%;}
+.pop-content{width: 750px; padding: 1em; max-height: 90vh; overflow: scroll; max-width: 100%; position: relative; background: white;}
+.pop-content h2{padding-left: 0;}
+
+@media print{
+	#form-container{
+		display: none;
+	}
+}

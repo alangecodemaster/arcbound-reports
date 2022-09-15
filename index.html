@@ -4,12 +4,75 @@
 	<meta charset="utf-8">
 	<title>Monthly Reports | Arcbound</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="form-styles.css">
+	<link rel="preconnect" href="https://cdn.ckeditor.com">
 	<script type="text/javascript" src="scripts.js"></script>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,700;1,400" rel="stylesheet">
+	<script src="https://cdn.ckeditor.com/ckeditor5/35.1.0/classic/ckeditor.js"></script>
 </head>
 <body>
+
+	<div id="form-container">
+		<h1>Arcbound Report Template</h1>
+		<p class="form-description">Enter the following form field data to automatically generate your monthly client report.</p>
+		<ul>
+			<li>
+				<label for="google-sheet">Google Sheet Url</label>
+				<p><em>Be sure to follow <a class="instructions-link" onclick="showPopup()">these instructions</a> for formatting your sheet.</em></p>
+				<input type="text" id="google-sheet">
+			</li>
+			<li>
+				<label for="google-sheet-num">Google Sheet Row</label>
+				<p><em>Enter the line/row number from which you would like to extract the report data in the sheet.</em></p>
+				<input type="number" id="google-sheet-num">
+			</li>
+			<li>
+				<label for="other">Other Report Info</label>
+				<p>
+					<em>
+					- Add any section titles as H1s.<br>
+					-Titles should be two words. Bold the first word and italicize the second.<br>
+					- Images should be sized before copy and paste.
+					</em>
+				</p>
+				<input type="text" id="other">
+			</li>
+		</ul>
+		<button onclick="submitReport()">Run Report</button>
+	</div>
+
+
+
+
+
+
+	<div class="popup">
+		<div class="background" onclick="showPopup()"></div>
+		<div class="pop-content">
+			<h1>How To Format Your Google Sheet</h1>
+			<h2>First Time Setup</h2>
+			<p>If this is your first time using this reporting tool, do the following:</p>
+			<ul>
+				<li>Open <a href="" target="_blank">this link</a> and copy the report into your drive.</li>
+				<li>Name the document whatever you like, but don't change the sheet name from Sheet1.</li>
+				<li>Change the data out for the client you are working on.</li>
+				<li>When ready, share the document so that anyone with the link can edit it.</li>
+			</ul>
+			<h2>2nd + Reports</h2>
+			<p>If you have already set up a client report, you can keep adding rows to that report each month with new data. It is recommended that you don't delete previous rows of data.</p>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
 	<div id="main">
 
 	<first-page>
@@ -223,11 +286,11 @@
 
 
 	<second-page>
-		<h2>
-			<span class="orange">Progress</span>
-			<span class="regular">OKR</span>
-		</h2>
 		<div class="more-content">
+			<h2>
+				<span class="orange">Progress</span>
+				<span class="regular">OKR</span>
+			</h2>
 			<p><strong>OKR #1: Jeff has an advisory position or board seat at 5 aligned companies.</strong></p>
 			<ul>
 				<li>Through Jeff's efforts and existing relationships, he has 5 advisory positions lined up. As long as these pan out, we will cease our efforts of trying to pursue advisory positions.</li>
@@ -236,23 +299,19 @@
 			<ul>
 				<li>We are sending 20 connection requests every week in an effort to find a newsletter sponsor. For the month of August, we sent 80 connection requests to business leaders in the UX/UI, tech, and design spaces. From our outreach, 36% (29) have received messages gauging interest in sponsoring Jeff's newsletter.</li>
 			</ul>
-		</div>
-		<h2>
-			<span class="orange">General</span>
-			<span class="regular">Updates</span>
-		</h2>
-		<div class="more-content">
+			<h2>
+				<span class="orange">General</span>
+				<span class="regular">Updates</span>
+			</h2>
 			<ul>
 				<li>To be noted, this month was lighter operationally out of respect for Jeff&rsquo;s time on vacation.</li>
 				<li>As of 9/6, we sent over a list of 40 prepared connections for Jeff, and we will be reaching out to those connections within the next two weeks.</li>
 				<li>We have sent Jeff several graphic samples created by our design team to test work supplementing future blog posts. Feedback has been relayed to our design team for future work. For the month of September, we will be offering Jeff blog posts that we feel could use a graphic. If approved, we can create 2-3 posts over the next 4-6 weeks and track their performance.</li>
 			</ul>
-		</div>
-		<h2>
-			<span class="orange">Big</span>
-			<span class="regular">Wins</span>
-		</h2>
-		<div class="more-content">
+			<h2>
+				<span class="orange">Big</span>
+				<span class="regular">Wins</span>
+			</h2>
 			<ul>
 			 	<li>While this was not a part of our cross-engagement efforts, you did receive engagement from an Arcbound partner with a collective following of 314,703.
 			 		<ul>

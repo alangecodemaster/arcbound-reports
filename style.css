@@ -10,8 +10,11 @@ h2{font-size: 30px; text-transform: uppercase; color: var(--blue); line-height: 
 h2 span{display: block;}
 h2 span:first-child{color: var(--orange); font-size: 20px; font-weight: lighter;}
 h2:after{background: linear-gradient(96deg, #00807e 0%, #6bd7d4 100%); content: ''; display: block; height: 5px; width: 100%; margin: 15px 0; width: 330px;}
-#main{width: 8.5in; margin: 0 auto; position: relative;}
+#main{width: 8.5in; margin: 0 auto; position: relative; overflow: hidden; height: 0;}
 first-page, second-page{ display: block; position: relative; height: 11in;}
+first-page.no-linkedin{height: unset;}
+first-page.no-linkedin >*:not(header){display: none;}
+second-page.no-linkedin{padding-bottom: 200px; height: calc(22in - 215px);}
 
 
 /*Top Banner*/
@@ -67,7 +70,7 @@ first-page header .date{text-align: center; margin-top: 0; font-weight: bold;}
 
 /*Second Page*/
 second-page{padding-top: 5%;}
-second-page h2{margin-bottom: 0;}
+second-page h2{margin-bottom: 0; padding: 0; position: relative; left: -83px;}
 .more-content{width: 600px; margin: 0 auto;}
 second-page .tiger-stripes{position: absolute; bottom: 0px; left: 0; opacity: .1; width: 100px; height: 300px; object-fit: cover;}
 second-page .blue-swoosh{position: absolute; display: block; top: 0; z-index: -1; right: 0; transform: rotateY(180deg); width: 501px;}
