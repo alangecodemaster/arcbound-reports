@@ -1,6 +1,6 @@
 /*Initial Site Setup*/
 *{box-sizing: border-box; font-family: "Open Sans", sans-serif;}
-body, html{margin: 0; height: 0;}
+body, html{margin: 0; height: 0; font-size: 14px;}
 img{max-width: 100%; height: auto;}
 :root{
 	--blue: #102e46;
@@ -69,7 +69,7 @@ first-page header .date{text-align: center; margin-top: 0; font-weight: bold;}
 second-page{padding-top: 5%;}
 second-page h2{margin-bottom: 0;}
 .more-content{width: 600px; margin: 0 auto;}
-second-page .tiger-stripes{position: absolute; bottom: 90px; left: 0; opacity: .1; width: 100px;}
+second-page .tiger-stripes{position: absolute; bottom: 0px; left: 0; opacity: .1; width: 100px; height: 300px; object-fit: cover;}
 second-page .blue-swoosh{position: absolute; display: block; top: 0; z-index: -1; right: 0; transform: rotateY(180deg); width: 501px;}
 footer{background-color: #020024; background-image: linear-gradient(24deg, black 59%, #182e45 85%); text-align: center; padding: 45px 0 25px; position: absolute; bottom: 0; width: 100%;}
 footer img{height: 35px;}
