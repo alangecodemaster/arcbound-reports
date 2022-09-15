@@ -17,7 +17,7 @@
 	<div id="form-container">
 		<h1>Arcbound Report Template</h1>
 		<p class="form-description">Enter the following form field data to automatically generate your monthly client report.</p>
-		<ul>
+		<ul class="instructions">
 			<li>
 				<label for="google-sheet">Google Sheet Url</label>
 				<p><em>Be sure to follow <a class="instructions-link" onclick="showPopup()">these instructions</a> for formatting your sheet.</em></p>
@@ -30,7 +30,7 @@
 			</li>
 			<li>
 				<label for="other">Other Report Info</label>
-				<p>
+				<p class="other-descr">
 					<em>
 					- Add any section titles as H1s.<br>
 					-Titles should be two words. Bold the first word and italicize the second.<br>
@@ -40,7 +40,7 @@
 				<input type="text" id="other">
 			</li>
 		</ul>
-		<button onclick="submitReport()">Run Report</button>
+		<button class="run-report" onclick="submitReport()">Run Report</button>
 	</div>
 
 

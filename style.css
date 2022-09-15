@@ -11,6 +11,7 @@ h2 span{display: block;}
 h2 span:first-child{color: var(--orange); font-size: 20px; font-weight: lighter;}
 h2:after{background: linear-gradient(96deg, #00807e 0%, #6bd7d4 100%); content: ''; display: block; height: 5px; width: 100%; margin: 15px 0; width: 330px;}
 #main{width: 8.5in; margin: 0 auto; position: relative; overflow: hidden; height: 0;}
+#main.active{height: initial;}
 first-page, second-page{ display: block; position: relative; height: 11in;}
 first-page.no-linkedin{height: unset;}
 first-page.no-linkedin >*:not(header){display: none;}
