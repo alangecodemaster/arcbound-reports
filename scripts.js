@@ -35,10 +35,6 @@ function getFormData(){
 // displays report after form data is processed
 function displayReport(formData){
 	document.querySelector("#main").classList.add("active");
-	if(!formData){
-		document.querySelector("first-page").classList.add("no-linkedin");
-		document.querySelector("second-page").classList.add("no-linkedin");
-	}
 	document.querySelector("#main").scrollIntoView();
 }
 

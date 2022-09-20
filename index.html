@@ -11,24 +11,51 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,700;1,400" rel="stylesheet">
 	<script src="https://cdn.ckeditor.com/ckeditor5/35.1.0/classic/ckeditor.js"></script>
+
+	<link href='https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css' rel='stylesheet' type='text/css' />
+
 </head>
-<body>
 
 	<div id="form-container">
 		<h1>Arcbound Report Template</h1>
 		<p class="form-description">Enter the following form field data to automatically generate your monthly client report. <br>
-			<em>View video below for instructions and help or chat/email Anton: anton@arcbound.com</em>
+			<em>View <a href="">video instructions</a> or slack / email Anton for additional quesions or help: anton@arcbound.com</em>
 		</p>
-		<ul class="instructions">
+		<ol class="instructions">
+			<li>
+				<label for="google-sheet-num">Client Name</label>
+				<p><em>Name as it is written in Google Sheet</em></p>
+				<input type="text" id="google-sheet-num">
+			</li>
 			<li>
 				<label for="google-sheet">Google Sheet Url</label>
 				<p><em>Be sure to follow <a class="instructions-link" onclick="showPopup()">these instructions</a> for formatting your sheet.</em></p>
 				<input type="text" id="google-sheet">
 			</li>
 			<li>
-				<label for="google-sheet-num">Google Sheet Row</label>
-				<p><em>Enter the line/row number from which you would like to extract the report data in the sheet.</em></p>
+				<label for="google-sheet-num">Enter the line/row number from which you would like to extract the report data in the client name sheet.</label>
 				<input type="number" id="google-sheet-num">
+			</li>
+			<li>
+				<label>Check additional reports you would like to generate:</label>
+				<ul class="checkboxes">
+					<li>
+						<label for="fb">Facbook</label>
+						<input type="checkbox" id="fb">
+						<label for="fb" class="check"><span>✓</span></label>
+					</li>
+					<li>
+						<label for="tw">Twitter</label>
+						<input type="checkbox" id="tw">
+						<label for="tw" class="check"><span>✓</span></label>
+					</li>
+					<li>
+						<label for="nl">Newsletter</label>
+						<input type="checkbox" id="nl">
+						<label for="nl" class="check"><span>✓</span></label>
+					</li>
+				</ul>
+				
 			</li>
 			<li>
 				<label for="other">Other Report Info</label>
@@ -36,12 +63,12 @@
 					<em>
 					- Add any section titles as H1s.<br>
 					-Titles should be two words. Bold the first word and italicize the second.<br>
-					- Images should be sized before copy and paste.
+					- Images should be sized before being copied and pasted.
 					</em>
 				</p>
 				<input type="text" id="other">
 			</li>
-		</ul>
+		</ol>
 		<button class="run-report" onclick="submitReport()">Run Report</button>
 	</div>
 
@@ -58,8 +85,8 @@
 			<p>If this is your first time using this reporting tool, do the following:</p>
 			<ul>
 				<li>Open <a href="" target="_blank">this link</a> and copy the report into your drive.</li>
-				<li>Name the document whatever you like, but don't change the sheet name from Sheet1.</li>
-				<li>Change the data out for the client you are working on.</li>
+				<li>Name the document whatever you like. Change the client tab name to the client's name, but don't change the other tab names.</li>
+				<li>Add the respective data to each sheet tab.</li>
 				<li>When ready, share the document so that anyone with the link can edit it.</li>
 			</ul>
 			<h2>2nd + Reports</h2>
@@ -74,10 +101,9 @@
 
 
 
-
 	<div id="main">
 
-	<first-page>
+	<section class="first-page">
 		<header>
 			<img class="bg" src="images/image-header.jpeg">
 			<img class="logo" src="images/color-arcbound-logo.png">
@@ -283,11 +309,11 @@
 				</div>
 			</div>
 		</div>
-	</first-page>
+	</section>
 
 
 
-	<second-page>
+	<section class="second-page">
 		<div class="more-content">
 			<h2>
 				<span class="orange">Progress</span>
@@ -325,7 +351,8 @@
 
 		<img class="blue-swoosh" src="images/blue%20top.png">
 		<img class="tiger-stripes" src="images/tiger_stripes.png">
-	</second-page>
+	</section>
+
 	<footer>
 		<img src="images/white-arcbound-logo.png">
 	</footer>
