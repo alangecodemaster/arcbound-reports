@@ -39,6 +39,7 @@ function displayReport(formData){
 		document.querySelector("first-page").classList.add("no-linkedin");
 		document.querySelector("second-page").classList.add("no-linkedin");
 	}
+	document.querySelector("#main").scrollIntoView();
 }
 
 

@@ -1,6 +1,6 @@
 /*Initial Site Setup*/
 *{box-sizing: border-box; font-family: "Open Sans", sans-serif;}
-body, html{margin: 0; height: 0; font-size: 14px;}
+body, html{margin: 0; height: 0; font-size: 14px; scroll-behavior: smooth;}
 img{max-width: 100%; height: auto;}
 :root{
 	--blue: #102e46;
