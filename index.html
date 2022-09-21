@@ -23,9 +23,9 @@
 		</p>
 		<ol class="instructions">
 			<li>
-				<label for="google-sheet-num">Client Name</label>
+				<label for="client-name">Client Name</label>
 				<p><em>Name as it is written in Google Sheet</em></p>
-				<input type="text" id="google-sheet-num">
+				<input type="text" id="client-name">
 			</li>
 			<li>
 				<label for="google-sheet">Google Sheet Url</label>
@@ -40,7 +40,12 @@
 				<label>Check additional reports you would like to generate:</label>
 				<ul class="checkboxes">
 					<li>
-						<label for="fb">Facbook</label>
+						<label for="insta">Instagram</label>
+						<input type="checkbox" id="insta">
+						<label for="insta" class="check"><span>✓</span></label>
+					</li>
+					<li>
+						<label for="fb">Facebook</label>
 						<input type="checkbox" id="fb">
 						<label for="fb" class="check"><span>✓</span></label>
 					</li>
@@ -112,8 +117,8 @@
 					<span contenteditable="true">Monthly</span>
 					<span>Report</span>
 				</h1>
-				<p contenteditable="true" class="name">Jeff Gothelf</p>
-				<p contenteditable="true" class="date">September 2022</p>
+				<p contenteditable="true" class="name" id="clientName">Jeff Gothelf</p>
+				<p contenteditable="true" class="date" id="reportMonth">September 2022</p>
 			</div>
 		</header>
 
@@ -127,7 +132,7 @@
 				<div class="sidebar">
 					<div class="indiv-metrics">
 						<p contentEditable="true" class="number">66,348</p>
-						<p contentEditable="true" class="label">Arcbound Partners Total Audience</p>
+						<p contentEditable="true" class="label">Cross-Engagement Total Audience</p>
 					</div>
 					<div class="indiv-metrics">
 						<p contentEditable="true" class="number">7,207</p>
@@ -152,7 +157,7 @@
 					<div class="indiv-stat-box">
 						<div class="title-increase">
 							<h3 contentEditable="true" >Views</h3>
-							<span contentEditable="true" class="percent">+16%</span>
+							<span contentEditable="true" class="percent" id="viewsDiff">+16%</span>
 						</div>
 						<div class="numbers">
 							<div class="current">
@@ -224,11 +229,11 @@
 						</div>
 						<div class="numbers">
 							<div class="current">
-								<span contentEditable="true" class="number">1.18%</span>
+								<span class="number"><percent contentEditable="true">1.18</percent>%</span>
 								<span contentEditable="true" class="date">Aug 1 – Aug 31</span>
 							</div>
 							<div class="last-month">
-								<span contentEditable="true" class="number">1.22%</span>
+								<span class="number"><percent contentEditable="true">1.18</percent>%</span>
 								<span contentEditable="true" class="date">Jul 1 – Jul 31</span>
 							</div>
 						</div>
