@@ -50,7 +50,7 @@ h2:after{background: linear-gradient(96deg, #00807e 0%, #6bd7d4 100%); content: 
 .indiv-stat-box:nth-child(1n + 3){margin-top: 15px;}
 .title-increase{display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; color: var(--blue);}
 .title-increase h3{margin: 0; font-size: 20px; text-transform: uppercase;}
-.percent{display: block; background: #00cb86; color: white; border-radius: 500px; padding: 3px 5px; font-size: 13px; width: 45px; text-align: center;}
+.percent{display: block; background: #00cb86; color: white; border-radius: 500px; padding: 3px 5px; font-size: 13px; min-width: 45px; text-align: center;}
 .percent.negative{background: #f3aa00;}
 .numbers{display: grid; grid-gap: 10px; grid-template-columns: 1fr 1fr;}
 .last-month{text-align: right;}

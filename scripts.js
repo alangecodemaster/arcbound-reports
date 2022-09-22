@@ -20,6 +20,42 @@ function $(selector){
 }
 
 
+
+
+//global vars
+const months = [{'Jan': 31, 'Feb': 28, 'Mar': 31, 'Apr': 30, 'May': 31, 'Jun': 30, 'Jul': 31, 'Aug': 31, 'Sep': 30, 'Oct': 31, 'Nov': 30, 'Dec': 31}];
+const prevMonth = [
+	{
+		"Jan": "Dec",
+		"Feb": "Jan",
+		"Mar": "Feb",
+		"Apr": "Mar",
+		"May": "Apr",
+		"Jun": "May",
+		"Jul": "Jun",
+		"Aug": "Jul",
+		"Sep": "Aug",
+		"Oct": "Sep",
+		"Nov": "Oct",
+		"Dec": "Nov"
+	}
+];
+const longMonth = [
+	{
+		"Jan": "January",
+		"Feb": "February",
+		"Mar": "March",
+		"Apr": "April",
+		"May": "May",
+		"Jun": "June",
+		"Jul": "July",
+		"Aug": "August",
+		"Sep": "September",
+		"Oct": "October",
+		"Nov": "November",
+		"Dec": "December"
+	}
+];
 // when button is clicked to run report, this function fires and triggers all other functions
 // functional programming is used to prevent bugs
 function submitReport(){
@@ -152,12 +188,100 @@ function replaceNameLinkedinInfo(sheetData, sheetRow){
 	let followersDiff = calcPercentage(prevFollowers, currentFollowers);
 	let newsletterDiff = calcPercentage(prevNewsSub, currentNewsSub);
 
-
+	$("#reportMonth").innerHTML = longMonth[0][reportMonth] + " " + new Date().getFullYear();
+	$("#clientName").innerHTML = clientName;
+	$("#prevViews").innerHTML = prevViews;
+	$("#currentViews").innerHTML = currentViews;
+	$("#prevLikes").innerHTML = prevLikes;
+	$("#currentLikes").innerHTML = currentLikes;
+	$("#prevComments").innerHTML = prevComments;
+	$("#currentComments").innerHTML = currentComments;
+	$("#prevShares").innerHTML = prevShares;
+	$("#currentShares").innerHTML = currentShares;
+	$("#prevEngagement").innerHTML = prevEngagement;
+	$("#currentEngagement").innerHTML = currentEngagement;
+	$("#prevPosts").innerHTML = prevPosts;
+	$("#currentPosts").innerHTML = currentPosts;
+	$("#prevConnections").innerHTML = prevConnections;
+	$("#currentConnections").innerHTML = currentConnections;
+	$("#prevFollowers").innerHTML = prevFollowers;
+	$("#currentFollowers").innerHTML = currentFollowers;
+	$("#prevNewsSub").innerHTML = prevNewsSub;
+	$("#currentNewsSub").innerHTML = currentNewsSub;
+	$("#crossEngagementTotal").innerHTML = crossEngagementTotal;
+	$("#crossEName1").innerHTML = crossEName1;
+	$("#crossEAmount1").innerHTML = crossEAmount1;
+	$("#crossEName2").innerHTML = crossEName2;
+	$("#crossEAmount2").innerHTML = crossEAmount2;
+	$("#crossEName3").innerHTML = crossEName3;
+	$("#crossEAmount3").innerHTML = crossEAmount3;
+	$("#crossEName4").innerHTML = crossEName4;
+	$("#crossEAmount4").innerHTML = crossEAmount4;
+	document.querySelectorAll(".current .date").forEach(date=>{
+		date.innerHTML = `${reportMonth} 1 - ${reportMonth} ${months[0][reportMonth]}`;
+	});
+	document.querySelectorAll(".last-month .date").forEach(date=>{
+		date.innerHTML = `${prevMonth[0][reportMonth]} 1 - ${months[0][prevMonth[0][reportMonth]]}`;
+	});
+	if(viewsDiff >= 0){
+		$("#viewsDiff").innerHTML = `+${viewsDiff}%`;
+	}else{
+		$("#viewsDiff").classList.add("negative");
+		$("#viewsDiff").innerHTML = viewsDiff + "%";
+	}
+	if(likesDiff >= 0){
+		$("#likesDiff").innerHTML = `+${likesDiff}%`;
+	}else{
+		$("#likesDiff").classList.add("negative");
+		$("#likesDiff").innerHTML = likesDiff + "%";
+	}
+	if(commentsDiff >= 0){
+		$("#commentsDiff").innerHTML = `+${commentsDiff}%`;
+	}else{
+		$("#commentsDiff").classList.add("negative");
+		$("#commentsDiff").innerHTML = commentsDiff + "%";
+	}
+	if(sharesDiff >= 0){
+		$("#sharesDiff").innerHTML = `+${sharesDiff}%`;
+	}else{
+		$("#sharesDiff").classList.add("negative");
+		$("#sharesDiff").innerHTML = sharesDiff + "%";
+	}
+	if(engageDiff >= 0){
+		$("#engageDiff").innerHTML = `+${engageDiff}%`;
+	}else{
+		$("#engageDiff").classList.add("negative");
+		$("#engageDiff").innerHTML = engageDiff + "%";
+	}
+	if(postsDiff >= 0){
+		$("#postsDiff").innerHTML = `+${postsDiff}%`;
+	}else{
+		$("#postsDiff").classList.add("negative");
+		$("#postsDiff").innerHTML = postsDiff + "%";
+	}
+	if(connectDiff >= 0){
+		$("#connectDiff").innerHTML = `+${connectDiff}%`;
+	}else{
+		$("#connectDiff").classList.add("negative");
+		$("#connectDiff").innerHTML = connectDiff + "%";
+	}
+	if(followersDiff >= 0){
+		$("#followersDiff").innerHTML = `+${followersDiff}%`;
+	}else{
+		$("#followersDiff").classList.add("negative");
+		$("#followersDiff").innerHTML = followersDiff + "%";
+	}
+	if(newsletterDiff >= 0){
+		$("#newsletterDiff").innerHTML = `+${newsletterDiff}%`;
+	}else{
+		$("#newsletterDiff").classList.add("negative");
+		$("#newsletterDiff").innerHTML = newsletterDiff + "%";
+	}
 }
 
 
 function calcPercentage(previous, current){
-	return Math.round(((Number(current) - Number(previous))/previous) * 100);
+	return (((Number(current) - Number(previous))/previous) * 100).toFixed(1);
 }
 
 
