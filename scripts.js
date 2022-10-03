@@ -111,6 +111,7 @@ function displayReport(formData){
 	}
 }
 
+//gets the JSON URL from google sheet
 function parseGoolgeSheet(formData, sheetName){
 	// https://docs.google.com/spreadsheets/d/1UYcbZ8LSAwQXThat30vRa2GVtknxPcrXSyJq8-sxHQw/edit#gid=0
 	let sheetKey = formData.googleSheet.split("/d/")[1].split("/edit")[0];
@@ -118,9 +119,8 @@ function parseGoolgeSheet(formData, sheetName){
 	return `https://sheets.googleapis.com/v4/spreadsheets/${sheetKey}/values/${sheetName}?alt=json&key=AIzaSyDhuWkJewik0MgaTUOSbNsDcT9mpEuMTeU`;
 }
 
-
+//
 function makeFetchRequest(url, reportType, sheetRow){
-		console.log(url);
 		fetch(url)
 		.then(response => {
 			if(!response.ok){
@@ -133,6 +133,7 @@ function makeFetchRequest(url, reportType, sheetRow){
 		.then(data => {
 			if(reportType == "name" && data){
 				replaceNameLinkedinInfo(data, sheetRow);
+				generateViewsAndFollowersGraph(data, sheetRow);
 			}
 		})
 		.catch((e)=>{
@@ -144,8 +145,6 @@ function makeFetchRequest(url, reportType, sheetRow){
 
 
 function replaceNameLinkedinInfo(sheetData, sheetRow){
-	console.log(sheetData);
-	console.log(sheetRow);
 	playCoolSaying();
 
 	let reportMonth = sheetData.values[Number(sheetRow) - 1][0];
@@ -282,6 +281,34 @@ function replaceNameLinkedinInfo(sheetData, sheetRow){
 
 function calcPercentage(previous, current){
 	return (((Number(current) - Number(previous))/previous) * 100).toFixed(1);
+}
+
+
+function generateViewsAndFollowersGraph(sheetData, sheetRow){
+	let counter = 0;
+	let numberOfDataPoints;
+	let sheetStartingPoint = 1
+	if(Number(sheetRow) - 1 < 12){
+		numberOfDataPoints = Number(sheetRow) - 1;
+	}else{
+		numberOfDataPoints = 12;
+		sheetStartingPoint = Number(sheetRow) - 12;
+	}
+	let numOfViewsPerMonth = [];
+	let numOfFollowersPerMonth = [];
+	let theMonths = [];
+
+	while(counter < numberOfDataPoints){
+		let views = sheetData.values[sheetStartingPoint + counter][3];
+		let followers = sheetData.values[sheetStartingPoint + counter][17];
+		let month = sheetData.values[sheetStartingPoint + counter][0];
+		numOfViewsPerMonth.push(views);
+		numOfFollowersPerMonth.push(followers);
+		theMonths.push(month);
+		counter++;
+	}
+	console.log(numOfViewsPerMonth, numOfFollowersPerMonth, theMonths);
+
 }
 
 

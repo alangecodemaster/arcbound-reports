@@ -33,7 +33,7 @@ h2:after{background: linear-gradient(96deg, #00807e 0%, #6bd7d4 100%); content: 
 
 
 /*LinkedIn Stats*/
-.linkedin{padding: 25px 0 0; background-image: url(images/circular-shape.png); background-size: 814px; background-position: 26px top; background-repeat: no-repeat; position: relative;}
+.linkedin{padding: 15px 0 0; background-image: url(images/circular-shape.png); background-size: 814px; background-position: 26px top; background-repeat: no-repeat; position: relative;}
 .linkedin-stats{display: flex; justify-content: space-between;}
 .linkedin-stats .sidebar{width: 200px; border-radius: 4px; overflow: hidden;}
 .linkedin .sidebar .indiv-metrics{padding: 1.06em 1em; color: white; text-transform: uppercase;}
@@ -45,10 +45,26 @@ h2:after{background: linear-gradient(96deg, #00807e 0%, #6bd7d4 100%); content: 
 .linkedin .sidebar .indiv-metrics:nth-child(3){background: rgb(50 174 171 / 70%);}
 .linkedin .sidebar .indiv-metrics:nth-child(4){background: rgb(50 174 172 / 85%);}
 .linkedin .sidebar .indiv-metrics:nth-child(5){background: #32aeab;}
-.linkedin-stats .stats-boxes{width: calc(100% - 215px); display: flex; flex-wrap: wrap; align-self: flex-start; justify-content: space-between; padding-right: 15px;}
-.indiv-stat-box{width: calc(50% - 7.5px); background: white; padding: 1.5em 1em; border-radius: 4px; }
-.indiv-stat-box:nth-child(1n + 3){margin-top: 15px;}
-.title-increase{display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; color: var(--blue);}
+.linkedin-stats .stats-boxes{width: calc(100% - 210px); display: flex; flex-wrap: wrap; align-self: flex-start; justify-content: space-between; padding-right: 15px;}
+.indiv-stat-box{width: calc(50% - 5px); background: white; padding: 1em; border-radius: 4px; }
+.indiv-stat-box:nth-child(1n + 2){margin-top: 10px;}
+.sidebar .indiv-stat-box{width: 94%; margin: 10px 0 0 10px; padding: .57em 1em;}
+.sidebar .indiv-stat-box .title-increase{display: initial;}
+.sidebar .indiv-stat-box .title-increase span{display: inline-block;}
+.sidebar .indiv-stat-box .numbers{grid-template-columns: 1fr;}
+.sidebar .last-month{text-align: left;}
+
+
+/*chart boxes*/
+.indiv-stat-box.full-width{width: 100%; display: grid; grid-gap: 10px; grid-template-columns: 1fr 1fr;}
+.indiv-stat-box.full-width .col-right{background: #aed9d7; height: 130px;}
+.indiv-stat-box.full-width .col-right > div{background: #32aeab}
+
+
+
+
+
+.title-increase{display: flex; justify-content: space-between; align-items: center; color: var(--blue);}
 .title-increase h3{margin: 0; font-size: 20px; text-transform: uppercase;}
 .percent{display: block; background: #00cb86; color: white; border-radius: 500px; padding: 3px 5px; font-size: 13px; min-width: 45px; text-align: center;}
 .percent.negative{background: #f3aa00;}
@@ -63,10 +79,10 @@ h2:after{background: linear-gradient(96deg, #00807e 0%, #6bd7d4 100%); content: 
 
 
 /*Final LinkedIn Report*/
-.final-linkedin-reports{display: grid; grid-gap: 15px; grid-template-columns: repeat(3, 1fr); margin-top: 15px; padding: 0 15px;}
+/*.final-linkedin-reports{display: grid; grid-gap: 15px; grid-template-columns: repeat(3, 1fr); margin-top: 15px; padding: 0 15px;}
 .final-linkedin-reports > div{border-radius: 4px; background: white; padding: 1em;}
 .final-linkedin-reports .title-increase{flex-wrap: wrap;}
-.final-linkedin-reports .title-increase h3{width: 100%; line-height: 1em; margin-bottom: 15px;}
+.final-linkedin-reports .title-increase h3{width: 100%; line-height: 1em; margin-bottom: 15px;}*/
 
 
 /*Second Page*/

@@ -11,8 +11,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,700;1,400" rel="stylesheet">
 	<script src="https://cdn.ckeditor.com/ckeditor5/35.1.0/classic/ckeditor.js"></script>
-
-	<link href='https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css' rel='stylesheet' type='text/css' />
+	<script src="https://d3js.org/d3.v7.min.js"></script>
 
 </head>
 
@@ -150,24 +149,68 @@
 						<p contentEditable="true" class="number" id="crossEAmount4">5,299</p>
 						<p contentEditable="true" class="label" id="crossEName4">Mike Thorne</p>
 					</div>
+					<div class="indiv-stat-box">
+						<div class="title-increase">
+							<h3 contentEditable="true" >Newsletter Subsr. <span style="font-size:15px;">(LinkedIn)</span></h3>
+							<span contentEditable="true" class="percent" id="newsletterDiff">+178</span>
+						</div>
+						<div class="numbers">
+							<div class="current">
+								<span contentEditable="true" class="number" id="currentNewsSub">42,349</span>
+								<span contentEditable="true" class="date">Aug 1 – Aug 31</span>
+							</div>
+							<div class="last-month">
+								<span contentEditable="true" class="number" id="prevNewsSub">42,527</span>
+								<span contentEditable="true" class="date">Jul 1 – Jul 31</span>
+							</div>
+						</div>
+					</div>
 				</div>
 
 
 				<div class="stats-boxes">
-					<div class="indiv-stat-box">
-						<div class="title-increase">
-							<h3 contentEditable="true" >Views</h3>
-							<span contentEditable="true" class="percent" id="viewsDiff">+16%</span>
+
+					<div class="indiv-stat-box full-width">
+						<div class="col-left">
+							<div class="title-increase">
+								<h3 contentEditable="true" >Views</h3>
+								<span contentEditable="true" class="percent" id="viewsDiff">+16%</span>
+							</div>
+							<div class="numbers">
+								<div class="current">
+									<span contentEditable="true" class="number" id="currentViews">205,515</span>
+									<span contentEditable="true" class="date">Aug 1 – Aug 31</span>
+								</div>
+								<div class="last-month">
+									<span contentEditable="true" class="number" id="prevViews">177,810</span>
+									<span contentEditable="true" class="date">Jul 1 – Jul 31</span>
+								</div>
+							</div>
 						</div>
-						<div class="numbers">
-							<div class="current">
-								<span contentEditable="true" class="number" id="currentViews">205,515</span>
-								<span contentEditable="true" class="date">Aug 1 – Aug 31</span>
+						<div class="col-right">
+							chart
+						</div>
+					</div>
+
+					<div class="indiv-stat-box full-width">
+						<div class="col-left">
+							<div class="title-increase">
+								<h3 contentEditable="true">Followers</h3>
+								<span contentEditable="true" class="percent" id="followersDiff">+872</span>
 							</div>
-							<div class="last-month">
-								<span contentEditable="true" class="number" id="prevViews">177,810</span>
-								<span contentEditable="true" class="date">Jul 1 – Jul 31</span>
+							<div class="numbers">
+								<div class="current">
+									<span contentEditable="true" class="number" id="currentFollowers">36,370</span>
+									<span contentEditable="true" class="date">Aug 1 – Aug 31</span>
+								</div>
+								<div class="last-month">
+									<span contentEditable="true" class="number" id="prevFollowers">37,242</span>
+									<span contentEditable="true" class="date">Jul 1 – Jul 31</span>
+								</div>
 							</div>
+						</div>
+						<div class="col-right">
+							chart
 						</div>
 					</div>
 
@@ -256,64 +299,28 @@
 						</div>
 					</div>
 
+					<div class="indiv-stat-box">
+						<div class="title-increase">
+							<h3 contentEditable="true" >Connections</h3>
+							<span contentEditable="true" class="percent" id="connectDiff">+138</span>
+						</div>
+						<div class="numbers">
+							<div class="current">
+								<span contentEditable="true" class="number" id="currentConnections">22,258</span>
+								<span contentEditable="true" class="date">Aug 1 – Aug 31</span>
+							</div>
+							<div class="last-month">
+								<span contentEditable="true" class="number" id="prevConnections">22,398</span>
+								<span contentEditable="true" class="date">Jul 1 – Jul 31</span>
+							</div>
+						</div>
+					</div>
+
 
 				</div>
 			</div>
 		</div>
 
-
-		<div class="final-linkedin-reports">
-			<div class="indiv-linkedin-report">
-				<div class="title-increase">
-					<h3 contentEditable="true" >Connections</h3>
-					<span contentEditable="true" class="percent" id="connectDiff">+138</span>
-				</div>
-				<div class="numbers">
-					<div class="current">
-						<span contentEditable="true" class="number" id="currentConnections">22,258</span>
-						<span contentEditable="true" class="date">Aug 1 – Aug 31</span>
-					</div>
-					<div class="last-month">
-						<span contentEditable="true" class="number" id="prevConnections">22,398</span>
-						<span contentEditable="true" class="date">Jul 1 – Jul 31</span>
-					</div>
-				</div>
-			</div>
-
-			<div class="indiv-linkedin-report">
-				<div class="title-increase">
-					<h3 contentEditable="true" >Followers</h3>
-					<span contentEditable="true" class="percent" id="followersDiff">+872</span>
-				</div>
-				<div class="numbers">
-					<div class="current">
-						<span contentEditable="true" class="number" id="currentFollowers">36,370</span>
-						<span contentEditable="true" class="date">Aug 1 – Aug 31</span>
-					</div>
-					<div class="last-month">
-						<span contentEditable="true" class="number" id="prevFollowers">37,242</span>
-						<span contentEditable="true" class="date">Jul 1 – Jul 31</span>
-					</div>
-				</div>
-			</div>
-
-			<div class="indiv-linkedin-report">
-				<div class="title-increase">
-					<h3 contentEditable="true" >LinkedIn Newsletter Subsr.</h3>
-					<span contentEditable="true" class="percent" id="newsletterDiff">+178</span>
-				</div>
-				<div class="numbers">
-					<div class="current">
-						<span contentEditable="true" class="number" id="currentNewsSub">42,349</span>
-						<span contentEditable="true" class="date">Aug 1 – Aug 31</span>
-					</div>
-					<div class="last-month">
-						<span contentEditable="true" class="number" id="prevNewsSub">42,527</span>
-						<span contentEditable="true" class="date">Jul 1 – Jul 31</span>
-					</div>
-				</div>
-			</div>
-		</div>
 	</section>
 
 
