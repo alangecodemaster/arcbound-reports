@@ -42,21 +42,25 @@
 						<label for="insta">Instagram</label>
 						<input type="checkbox" id="insta">
 						<label for="insta" class="check"><span>✓</span></label>
+						<input type="number" class="social-row-number" placeholder="Row #" id="instaRow">
 					</li>
 					<li>
 						<label for="fb">Facebook</label>
 						<input type="checkbox" id="fb">
 						<label for="fb" class="check"><span>✓</span></label>
+						<input type="number" class="social-row-number" placeholder="Row #" id="fbRow">
 					</li>
 					<li>
 						<label for="tw">Twitter</label>
 						<input type="checkbox" id="tw">
 						<label for="tw" class="check"><span>✓</span></label>
+						<input type="number" class="social-row-number" placeholder="Row #" id="twRow">
 					</li>
 					<li>
 						<label for="nl">Newsletter</label>
 						<input type="checkbox" id="nl">
 						<label for="nl" class="check"><span>✓</span></label>
+						<input type="number" class="social-row-number" placeholder="Row #" id="nlRow">
 					</li>
 				</ul>
 				
@@ -105,7 +109,7 @@
 
 
 
-	<div id="main">
+	<div id="main" class="active">
 
 	<section class="first-page">
 		<header>
@@ -151,7 +155,7 @@
 					</div>
 					<div class="indiv-stat-box">
 						<div class="title-increase">
-							<h3 contentEditable="true" >Newsletter Subsr. <span style="font-size:15px;">(LinkedIn)</span></h3>
+							<h3 contentEditable="true" >LI Newsletter Subscribers <span style="font-size:15px;"></span></h3>
 							<span contentEditable="true" class="percent" id="newsletterDiff">+178</span>
 						</div>
 						<div class="numbers">
@@ -187,8 +191,8 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-right">
-							chart
+						<div class="col-right" id="views-chart">
+							
 						</div>
 					</div>
 
@@ -209,8 +213,8 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-right">
-							chart
+						<div class="col-right" id="followers-chart">
+							
 						</div>
 					</div>
 
@@ -325,6 +329,428 @@
 
 
 
+	<!-- SOCIAL PAGES -->
+
+
+
+	<section class="social-pages">
+
+		<div class="half-pages insta-page">
+			<h2><span class="orange" contenteditable="true">Stats</span><span class="regular" contenteditable="true">Instagram</span></h2>
+
+			<div class="stats-boxes">
+
+				<div class="indiv-stat-box full-width">
+					<div class="col-left">
+						<div class="title-increase">
+							<h3 contenteditable="true">Followers</h3>
+							<span contenteditable="true" class="percent" id="instaFollowersDiff">+14%</span>
+						</div>
+						<div class="numbers">
+							<div class="current">
+								<span contenteditable="true" class="number" id="instaCurrentFollowers">2,210</span>
+								<span contenteditable="true" class="date">Aug 1 – Aug 31</span>
+							</div>
+							<div class="last-month">
+								<span contenteditable="true" class="number" id="instaPrevFollowers">1,934</span>
+								<span contenteditable="true" class="date">Jul 1 – Jul 31</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-right">
+						
+					</div>
+				</div>
+
+				<div class="indiv-stat-box full-width">
+					<div class="col-left">
+						<div class="title-increase">
+							<h3 contenteditable="true">Likes</h3>
+							<span contenteditable="true" class="percent" id="instaLikesDiff">+14%</span>
+						</div>
+						<div class="numbers">
+							<div class="current">
+								<span contenteditable="true" class="number" id="instaCurrentLikes">2,210</span>
+								<span contenteditable="true" class="date">Aug 1 – Aug 31</span>
+							</div>
+							<div class="last-month">
+								<span contenteditable="true" class="number" id="instaPrevLikes">1,934</span>
+								<span contenteditable="true" class="date">Jul 1 – Jul 31</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-right">
+						
+					</div>
+				</div>
+				
+				<div class="indiv-stat-box" id="instaComments">
+					<div class="title-increase">
+						<h3 contenteditable="true">Comments</h3>
+						<span contenteditable="true" class="percent" id="instaCommentsDiff">+14%</span>
+					</div>
+					<div class="numbers">
+						<div class="current">
+							<span contenteditable="true" class="number" id="instaCurrentComments">2,210</span>
+							<span contenteditable="true" class="date">Aug 1 – Aug 31</span>
+						</div>
+						<div class="last-month">
+							<span contenteditable="true" class="number" id="instaPrevComments">1,934</span>
+							<span contenteditable="true" class="date">Jul 1 – Jul 31</span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="indiv-stat-box">
+					<div class="title-increase">
+						<h3 contenteditable="true">Post Views</h3>
+						<span contenteditable="true" class="percent" id="instaViewsDiff">+14%</span>
+					</div>
+					<div class="numbers">
+						<div class="current">
+							<span contenteditable="true" class="number" id="instaCurrentViews">2,210</span>
+							<span contenteditable="true" class="date">Aug 1 – Aug 31</span>
+						</div>
+						<div class="last-month">
+							<span contenteditable="true" class="number" id="instaPrevViews">1,934</span>
+							<span contenteditable="true" class="date">Jul 1 – Jul 31</span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="indiv-stat-box">
+					<div class="title-increase">
+						<h3 contenteditable="true" style="font-size: 18px;">Engagement Rate</h3>
+						<span contenteditable="true" class="percent" id="likesDiff">+14%</span>
+					</div>
+					<div class="numbers">
+						<div class="current">
+							<span contenteditable="true" class="number" id="instaCurrentEngagementRate">2,210</span>
+							<span contenteditable="true" class="date">Aug 1 – Aug 31</span>
+						</div>
+						<div class="last-month">
+							<span contenteditable="true" class="number" id="instaPevEngagementRate">1,934</span>
+							<span contenteditable="true" class="date">Jul 1 – Jul 31</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+		<div class="half-pages fb-page">
+			<h2>
+				<span class="orange">Stats</span>
+				<span class="regular">Facebook</span>
+			</h2>
+			<div class="stats-boxes">
+
+				<div class="indiv-stat-box full-width">
+					<div class="col-left">
+						<div class="title-increase">
+							<h3 contenteditable="true">Post Impressions</h3>
+							<span contenteditable="true" class="percent" id="fbImpressDiff">+14%</span>
+						</div>
+						<div class="numbers">
+							<div class="current">
+								<span contenteditable="true" class="number" id="fbCurrentImpress">2,210</span>
+								<span contenteditable="true" class="date">Aug 1 – Aug 31</span>
+							</div>
+							<div class="last-month">
+								<span contenteditable="true" class="number" id="fbPrevImpress">1,934</span>
+								<span contenteditable="true" class="date">Jul 1 – Jul 31</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-right">
+						
+					</div>
+				</div>
+
+				<div class="indiv-stat-box full-width">
+					<div class="col-left">
+						<div class="title-increase">
+							<h3 contenteditable="true">Post Likes</h3>
+							<span contenteditable="true" class="percent" id="fbPostlikesDiff">+14%</span>
+						</div>
+						<div class="numbers">
+							<div class="current">
+								<span contenteditable="true" class="number" id="fbCurrentPostlikes">2,210</span>
+								<span contenteditable="true" class="date">Aug 1 – Aug 31</span>
+							</div>
+							<div class="last-month">
+								<span contenteditable="true" class="number" id="fbPrevPostlikes">1,934</span>
+								<span contenteditable="true" class="date">Jul 1 – Jul 31</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-right">
+						
+					</div>
+				</div>
+				
+				<div class="indiv-stat-box" id="instaComments">
+					<div class="title-increase">
+						<h3 contenteditable="true">Page Likes</h3>
+						<span contenteditable="true" class="percent" id="fbPagelikesDifff">+14%</span>
+					</div>
+					<div class="numbers">
+						<div class="current">
+							<span contenteditable="true" class="number" id="fbCurrentPagelikes">2,210</span>
+							<span contenteditable="true" class="date">Aug 1 – Aug 31</span>
+						</div>
+						<div class="last-month">
+							<span contenteditable="true" class="number" id="fbPrevPagelikes">1,934</span>
+							<span contenteditable="true" class="date">Jul 1 – Jul 31</span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="indiv-stat-box">
+					<div class="title-increase">
+						<h3 contenteditable="true">Page Views</h3>
+						<span contenteditable="true" class="percent" id="fbPageviewsDiff">+14%</span>
+					</div>
+					<div class="numbers">
+						<div class="current">
+							<span contenteditable="true" class="number" id="fbCurrentPageviews">2,210</span>
+							<span contenteditable="true" class="date">Aug 1 – Aug 31</span>
+						</div>
+						<div class="last-month">
+							<span contenteditable="true" class="number" id="fbPrevPageviews">1,934</span>
+							<span contenteditable="true" class="date">Jul 1 – Jul 31</span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="indiv-stat-box">
+					<div class="title-increase">
+						<h3 contenteditable="true" style="font-size: 18px;">Post Views</h3>
+						<span contenteditable="true" class="percent" id="fbPostViewsDiff">+14%</span>
+					</div>
+					<div class="numbers">
+						<div class="current">
+							<span contenteditable="true" class="number" id="fbCurrentPostViews">2,210</span>
+							<span contenteditable="true" class="date">Aug 1 – Aug 31</span>
+						</div>
+						<div class="last-month">
+							<span contenteditable="true" class="number" id="fbPrevPostViews">1,934</span>
+							<span contenteditable="true" class="date">Jul 1 – Jul 31</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="indiv-stat-box" style="grid-area: 1 / 3 / span 1 / span 1">
+					<div class="title-increase">
+						<h3 contenteditable="true" style="font-size: 18px;">Comments</h3>
+						<span contenteditable="true" class="percent" id="fbCommentsDiff">+14%</span>
+					</div>
+					<div class="numbers">
+						<div class="current">
+							<span contenteditable="true" class="number" id="fbCurrentComments">2,210</span>
+							<span contenteditable="true" class="date">Aug 1 – Aug 31</span>
+						</div>
+						<div class="last-month">
+							<span contenteditable="true" class="number" id="fbPrevComments">1,934</span>
+							<span contenteditable="true" class="date">Jul 1 – Jul 31</span>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+
+
+
+
+		<div class="half-pages twitter-page">
+			<h2>
+				<span class="orange">Stats</span>
+				<span class="regular">Twitter</span>
+			</h2>
+			<div class="stats-boxes">
+
+				<div class="indiv-stat-box full-width">
+					<div class="col-left">
+						<div class="title-increase">
+							<h3 contenteditable="true">Followers</h3>
+							<span contenteditable="true" class="percent" id="twFollowersDiff">+14%</span>
+						</div>
+						<div class="numbers">
+							<div class="current">
+								<span contenteditable="true" class="number" id="twCurrentFollowrs">2,210</span>
+								<span contenteditable="true" class="date">Aug 1 – Aug 31</span>
+							</div>
+							<div class="last-month">
+								<span contenteditable="true" class="number" id="twPrevFollowrs">1,934</span>
+								<span contenteditable="true" class="date">Jul 1 – Jul 31</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-right">
+						
+					</div>
+				</div>
+
+				<div class="indiv-stat-box full-width">
+					<div class="col-left">
+						<div class="title-increase">
+							<h3 contenteditable="true">Likes</h3>
+							<span contenteditable="true" class="percent" id="twLikesDiff">+14%</span>
+						</div>
+						<div class="numbers">
+							<div class="current">
+								<span contenteditable="true" class="number" id="twCurrentLikes">2,210</span>
+								<span contenteditable="true" class="date">Aug 1 – Aug 31</span>
+							</div>
+							<div class="last-month">
+								<span contenteditable="true" class="number" id="twPrevLikes">1,934</span>
+								<span contenteditable="true" class="date">Jul 1 – Jul 31</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-right">
+						
+					</div>
+				</div>
+
+				<div class="indiv-stat-box">
+					<div class="title-increase">
+						<h3 contenteditable="true">Mentions</h3>
+						<span contenteditable="true" class="percent" id="twMentionsDiff">+14%</span>
+					</div>
+					<div class="numbers">
+						<div class="current">
+							<span contenteditable="true" class="number" id="twCurrentMentions">2,210</span>
+							<span contenteditable="true" class="date">Aug 1 – Aug 31</span>
+						</div>
+						<div class="last-month">
+							<span contenteditable="true" class="number" id="twPrevMentions">1,934</span>
+							<span contenteditable="true" class="date">Jul 1 – Jul 31</span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="indiv-stat-box">
+					<div class="title-increase">
+						<h3 contenteditable="true">Comments</h3>
+						<span contenteditable="true" class="percent" id="twCommentsDiff">+14%</span>
+					</div>
+					<div class="numbers">
+						<div class="current">
+							<span contenteditable="true" class="number" id="twCurrentComments">2,210</span>
+							<span contenteditable="true" class="date">Aug 1 – Aug 31</span>
+						</div>
+						<div class="last-month">
+							<span contenteditable="true" class="number" id="twPrevComments">1,934</span>
+							<span contenteditable="true" class="date">Jul 1 – Jul 31</span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="indiv-stat-box">
+					<div class="title-increase">
+						<h3 contenteditable="true">Impressions</h3>
+						<span contenteditable="true" class="percent" id="twImpressDiff">+14%</span>
+					</div>
+					<div class="numbers">
+						<div class="current">
+							<span contenteditable="true" class="number" id="twCurrentImpress">2,210</span>
+							<span contenteditable="true" class="date">Aug 1 – Aug 31</span>
+						</div>
+						<div class="last-month">
+							<span contenteditable="true" class="number" id="twPrevImpress">1,934</span>
+							<span contenteditable="true" class="date">Jul 1 – Jul 31</span>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+
+
+
+
+		<div class="half-pages newsletter-page">
+			<h2>
+				<span class="orange">Stats</span>
+				<span class="regular">Newsletter</span>
+			</h2>
+			<div class="stats-boxes">
+
+				<div class="indiv-stat-box full-width">
+					<div class="col-left">
+						<div class="title-increase">
+							<h3 contenteditable="true">Subscribers</h3>
+							<span contenteditable="true" class="percent" id="nlSubDiff">+14%</span>
+						</div>
+						<div class="numbers">
+							<div class="current">
+								<span contenteditable="true" class="number" id="nlCurrentSub">2,210</span>
+								<span contenteditable="true" class="date">Aug 1 – Aug 31</span>
+							</div>
+							<div class="last-month">
+								<span contenteditable="true" class="number" id="nlPrevSub">1,934</span>
+								<span contenteditable="true" class="date">Jul 1 – Jul 31</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-right">
+						
+					</div>
+				</div>
+
+				<div class="indiv-stat-box full-width">
+					<div class="col-left">
+						<div class="title-increase">
+							<h3 contenteditable="true">Open Rate</h3>
+							<span contenteditable="true" class="percent" id="nlOpenRateDiff">+14%</span>
+						</div>
+						<div class="numbers">
+							<div class="current">
+								<span contenteditable="true" class="number" id="nlCurrentOpenRate">2,210</span>
+								<span contenteditable="true" class="date">Aug 1 – Aug 31</span>
+							</div>
+							<div class="last-month">
+								<span contenteditable="true" class="number" id="nlPrevOpenRate">1,934</span>
+								<span contenteditable="true" class="date">Jul 1 – Jul 31</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-right">
+						
+					</div>
+				</div>
+
+				<div class="indiv-stat-box" style="grid-column: 1 / span 2; width: 80%;">
+					<div class="title-increase">
+						<h3 contenteditable="true">Click-Through Rate</h3>
+						<span contenteditable="true" class="percent" id="nlCTRDiff">+14%</span>
+					</div>
+					<div class="numbers">
+						<div class="current">
+							<span contenteditable="true" class="number" id="nlCurrentCTR">2,210</span>
+							<span contenteditable="true" class="date">Aug 1 – Aug 31</span>
+						</div>
+						<div class="last-month">
+							<span contenteditable="true" class="number" id="nlPrevCTR">1,934</span>
+							<span contenteditable="true" class="date">Jul 1 – Jul 31</span>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+
+		<img src="images/tiger_stripes blue.png" class="accent-image">
+	</section>
+
+
+
 	<section class="second-page">
 		<div class="more-content" contenteditable="true">
 			<h2>
@@ -362,7 +788,7 @@
 		</div>
 
 		<img class="blue-swoosh" src="images/blue%20top.png">
-		<img class="tiger-stripes" src="images/tiger_stripes.png">
+		<img class="tiger-stripes" src="images/tiger_stripes blue.png">
 	</section>
 
 	<footer>

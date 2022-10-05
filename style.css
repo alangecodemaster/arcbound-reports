@@ -56,9 +56,14 @@ h2:after{background: linear-gradient(96deg, #00807e 0%, #6bd7d4 100%); content: 
 
 
 /*chart boxes*/
-.indiv-stat-box.full-width{width: 100%; display: grid; grid-gap: 10px; grid-template-columns: 1fr 1fr;}
-.indiv-stat-box.full-width .col-right{background: #aed9d7; height: 130px;}
-.indiv-stat-box.full-width .col-right > div{background: #32aeab}
+.indiv-stat-box.full-width{width: 100%; display: grid; grid-gap: 14px; grid-template-columns: 250px 1fr; overflow: hidden;}
+.indiv-stat-box.full-width .col-right{background: #aed9d7; height: 130px; width: 299px; display: flex; align-items: flex-end; justify-content: space-between; position: relative; padding: 25px 10px 25px 25px}
+.indiv-stat-box.full-width .col-left{padding: 14px 0;}
+.indiv-stat-box.full-width .col-right > div{background: #32aeab; position: relative;}
+.indiv-stat-box.full-width .col-right > div .data{position: absolute; transform: rotate(-90deg); text-align: center; left: 50%; transform: translateX(-50%) rotate(-90deg); bottom: 18px; color: white; font-size: 12px; font-weight: bold; letter-spacing: 1px;}
+.indiv-stat-box.full-width .col-right > div .month{position: absolute; font-size: 10px; bottom: -18px; left: 50%; transform: translateX(-50%) rotate(-45deg);}
+.indiv-stat-box.full-width .col-right .yAxis, .indiv-stat-box.full-width .col-right .xAxis{position: absolute;}
+.indiv-stat-box.full-width .y-val{position: absolute; left: 10px; font-size: 10px; margin: 0;}
 
 
 
@@ -95,9 +100,27 @@ footer{background-color: #020024; background-image: linear-gradient(24deg, black
 footer img{height: 35px;}
 
 
+/*SOCIAL PAGES*/
+.social-pages{position: relative; background-image: url('images/person-climbing-back-gray.jpeg'); background-repeat: no-repeat; background-size: auto 11in; background-position: 90% top; overflow: hidden; display: flex; flex-direction: column;}
+.social-pages.hidden{display: none;}
+.social-pages.half{height: 11in;}
+.social-pages.half .accent-image{display: none;}
+.social-pages:before{content: ''; display: block; position: absolute; height: 50%; width: 100%; top: 11in; background: linear-gradient(whitesmoke, whitesmoke, #d4eaea);}
+.social-pages:after{background-image: url('images/circular-shape.png'); content: ''; display: block; position: absolute; height: 50%; width: 100%; top: 11in; z-index: 1; background-size: 118%; transform: rotateY(180deg); background-repeat: no-repeat;}
+.social-pages .half-pages{height: 5.5in; padding: 25px 0 0 ; z-index: 2; position: relative; flex-shrink: 0;}
+.social-pages .half-pages.hidden{order: 1; visibility: hidden;}
 
+.social-pages .accent-image{position: absolute; opacity: .2; width: 120px; bottom: -140px; right: 0;}
 
+.social-pages .stats-boxes{display: grid; grid-template-columns: 1fr 1fr 1fr; grid-gap: 10px; padding: 0 15px;}
+.social-pages .indiv-stat-box{width: 100%;}
+.social-pages .indiv-stat-box:nth-child(1n + 2){margin-top: 0}
+.social-pages .indiv-stat-box.full-width{grid-column: 1 / span 3;     grid-template-columns: 3fr 4fr; align-items: center; grid-gap: 60px; padding: .5em;}
+.social-pages .indiv-stat-box.full-width .col-right{width: 400px; height: 110px;}
+.social-pages .indiv-stat-box.full-width .col-left{padding: 0;}
 
+.social-pages .fb-page .indiv-stat-box.full-width{grid-column: 1 / span 2; grid-template-columns: 250px 1fr; grid-gap: 10px;}
+.social-pages .fb-page .indiv-stat-box.full-width .col-right{width: 247px;}
 
 
 
