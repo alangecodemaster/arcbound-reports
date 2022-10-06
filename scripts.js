@@ -52,7 +52,7 @@ const longMonth = [
 ];
 // when button is clicked to run report, this function fires and triggers all other functions
 // functional programming is used to prevent bugs
-function submitReport(){
+async function submitReport(){
 	const formData = getFormData();
 	if(!displayReport(formData)){
 		return;
@@ -60,8 +60,7 @@ function submitReport(){
 
 	// get the linkedin client URL structure and make the request
 	const clientNameRequestURL = parseGoolgeSheet(formData, formData.client_name);
-	makeFetchRequest(clientNameRequestURL, "name", formData.sheetRow);
-
+	const nameFetch = await makeFetchRequest(clientNameRequestURL, "name", formData.sheetRow);
 	// checks social data
 	socialDataChecked(formData);
 
@@ -69,27 +68,29 @@ function submitReport(){
 	if(formData.instagram){
 		const clientNameRequestURL = parseGoolgeSheet(formData, "Instagram");
 		if(formData.instaSheetRow){
-			makeFetchRequest(clientNameRequestURL, "insta", formData.instaSheetRow);
+			const instaFetch = await makeFetchRequest(clientNameRequestURL, "insta", formData.instaSheetRow);
 		}
 	}
 	if(formData.facebook){
 		const clientNameRequestURL = parseGoolgeSheet(formData, "Facebook");
 		if(formData.fbSheetRow){
-			makeFetchRequest(clientNameRequestURL, "fb", formData.fbSheetRow);
+			const fbFetch = await makeFetchRequest(clientNameRequestURL, "fb", formData.fbSheetRow);
 		}
 	}
 	if(formData.twitter){
 		const clientNameRequestURL = parseGoolgeSheet(formData, "Twitter");
 		if(formData.twSheetRow){
-			makeFetchRequest(clientNameRequestURL, "tw", formData.twSheetRow);
+			const twFetch = await makeFetchRequest(clientNameRequestURL, "tw", formData.twSheetRow);
 		}
 	}
 	if(formData.newsletter){
 		const clientNameRequestURL = parseGoolgeSheet(formData, "Newsletter");
 		if(formData.nlSheetRow){
-			makeFetchRequest(clientNameRequestURL, "nl", formData.nlSheetRow);
+			const nl = await makeFetchRequest(clientNameRequestURL, "nl", formData.nlSheetRow);
 		}
 	}
+
+	grabText();
 
 }
 
@@ -117,7 +118,7 @@ function socialDataChecked(formData){
 
 //plays a funny saying
 function playCoolSaying(){
-	let coolPhraseArray = ["Yahoo!", "Here we go!", "Let's do this!", "Let's make like a killer and slaughter this!", "Watch out! Cool report stuff ahead!", "You thirsty? 'Cause you're about to drink in some stats!", "There are two types of reports: this one, and all the other boring ones.", "Money money money. Must be funny. In a rich man's report!", "What time is it!? REPORT TIME!", "When I say monthly, you say report! Monthly...", "They're always after me lucky reports.", "Oh yeah!", "Da da da da dum, I'm loving it!", "A diamond is girl's best friend but this report is forever.", "There are some things money just can't buy. For everything else, there's this report.", "Save time, save money!", "Protect yourself from mahem with a report like me.", "This report is money. What's in your wallet!?", "Snap, crackle, REPORT!", "This resport is finger-lickin' good.", "Can you hear me now!? Good.", "If America runs on Dunkin, then Dunkin must run on this report!", "You ain't never had a friend like this report!", "Better report than never.", "Arby's has the meats. Arcbound has the reports.", "Got report?", "Like a good neighbor, reports are here!", "Don't you know? This report will give you wings.", "This is the report that smiles back.", "Put on a happy face!", "Gotta catch 'em all (those stats, I mean!)", "Give me a break. Give me a break. Break my off a piece of that re-port-ing!", "Hey Tony! I like the things you do. Hey Tony! If I could I would be you. The one and only tiger, the one and only taste. You know how to take a report and make it... GGGRRREEAAT!"]
+	let coolPhraseArray = ["Yahoo!", "Here we go!", "Let's do this!", "Let's make like a killer and slaughter this!", "Watch out! Cool report stuff ahead!", "You thirsty? 'Cause you're about to drink in some stats!", "There are two types of reports: this one, and all the other boring ones.", "Money money money. Must be funny. In a rich man's report!", "What time is it!? REPORT TIME!", "When I say monthly, you say report! Monthly...", "They're always after me lucky reports.", "Oh yeah!", "Da da da da dum, I'm loving it!", "A diamond is girl's best friend but this report is forever.", "There are some things money just can't buy. For everything else, there's this report.", "Save time, save money!", "Protect yourself from mahem with a report like me.", "This report is money. What's in your wallet!?", "Snap, crackle, REPORT!", "This resport is finger-lickin' good.", "Can you hear me now!? Good.", "If America runs on Dunkin, then Dunkin must run on this report!", "You ain't never had a friend like this report!", "Better report than never.", "Arby's has the meats. Arcbound has the reports.", "Got report?", "Like a good neighbor, reports are here!", "Don't you know? This report will give you wings.", "This is the report that smiles back.", "Put on a happy face!", "Gotta catch 'em all (those stats, I mean!)", "Give me a break. Give me a break. Break my off a piece of that re-port-ing!", "Hey Tony! I like the things you do. Hey Tony! If I could I would be you. The one and only tiger, the one and only taste. You know how to take a report and make it... GGGRRREEAAT!", "To the moon and back!", "Aim for the moon and hit the stars!", "Hakunah Matata!", "For FRODO!", "I'm king of the world!", "This report: it's elementary, my Dear Watson.", "We're not in Kansas anymore, Todo.", "GOOOOOOOOOOOOOOOOD MORNING VIETNAM!", "Well, alrighty then!", "Show me the money!", "Today, I consider myself the luckiest person on the face of the earth.", "If you build it, they will come.", "It's alive! It's alive!", "I feel the need, the need for speed!", "My precious...", "Heeeeereeee's Johnny!"]
 		alert(coolPhraseArray[Math.floor(Math.random()*coolPhraseArray.length)]);
 }
 
@@ -164,9 +165,10 @@ function parseGoolgeSheet(formData, sheetName){
 }
 
 //
-function makeFetchRequest(url, reportType, sheetRow){
+async function makeFetchRequest(url, reportType, sheetRow){
+	const fetcher = await
 		fetch(url)
-		.then(response => {
+		.then( response => {
 			if(!response.ok){
 				alert("There has been an error retrieving the URL you provided. Please refresh and try again.");
 				return response;
@@ -174,17 +176,16 @@ function makeFetchRequest(url, reportType, sheetRow){
 				return response.json();
 			}
 		})
-		.then(data => {
+		.then( data => {
 			if(reportType == "name" && data){
 				replaceNameLinkedinInfo(data, sheetRow);
 				generateViewsAndFollowersGraph(data, sheetRow);
 			}else{
-				console.log(data, sheetRow, reportType);
 				replaceSocialInfo(data, sheetRow, reportType);
 				generateSocialGraph(data, sheetRow, reportType);
 			}
 		})
-		.catch((e)=>{
+		.catch( (e)=>{
 			alert("Error! Error! Oh no, something screwed up! Try it again...");
 			console.log(e);
 		})
@@ -265,6 +266,7 @@ function replaceNameLinkedinInfo(sheetData, sheetRow){
 	document.querySelector("#crossEName4").innerHTML = crossEName4;
 	document.querySelector("#crossEAmount4").innerHTML = crossEAmount4;
 
+	//applies date range for whole document
 	document.querySelectorAll(".current .date").forEach(date=>{
 		date.innerHTML = `${reportMonth} 1 - ${reportMonth} ${months[0][reportMonth]}`;
 	});
@@ -272,60 +274,15 @@ function replaceNameLinkedinInfo(sheetData, sheetRow){
 		date.innerHTML = `${prevMonth[0][reportMonth]} 1 - ${months[0][prevMonth[0][reportMonth]]}`;
 	});
 
-	if(viewsDiff >= 0){
-		document.querySelector("#viewsDiff").innerHTML = `+${viewsDiff}%`;
-	}else{
-		document.querySelector("#viewsDiff").classList.add("negative");
-		document.querySelector("#viewsDiff").innerHTML = viewsDiff + "%";
-	}
-	if(likesDiff >= 0){
-		document.querySelector("#likesDiff").innerHTML = `+${likesDiff}%`;
-	}else{
-		document.querySelector("#likesDiff").classList.add("negative");
-		document.querySelector("#likesDiff").innerHTML = likesDiff + "%";
-	}
-	if(commentsDiff >= 0){
-		document.querySelector("#commentsDiff").innerHTML = `+${commentsDiff}%`;
-	}else{
-		document.querySelector("#commentsDiff").classList.add("negative");
-		document.querySelector("#commentsDiff").innerHTML = commentsDiff + "%";
-	}
-	if(sharesDiff >= 0){
-		document.querySelector("#sharesDiff").innerHTML = `+${sharesDiff}%`;
-	}else{
-		document.querySelector("#sharesDiff").classList.add("negative");
-		document.querySelector("#sharesDiff").innerHTML = sharesDiff + "%";
-	}
-	if(engageDiff >= 0){
-		document.querySelector("#engageDiff").innerHTML = `+${engageDiff}%`;
-	}else{
-		document.querySelector("#engageDiff").classList.add("negative");
-		document.querySelector("#engageDiff").innerHTML = engageDiff + "%";
-	}
-	if(postsDiff >= 0){
-		document.querySelector("#postsDiff").innerHTML = `+${postsDiff}%`;
-	}else{
-		document.querySelector("#postsDiff").classList.add("negative");
-		document.querySelector("#postsDiff").innerHTML = postsDiff + "%";
-	}
-	if(connectDiff >= 0){
-		document.querySelector("#connectDiff").innerHTML = `+${connectDiff}%`;
-	}else{
-		document.querySelector("#connectDiff").classList.add("negative");
-		document.querySelector("#connectDiff").innerHTML = connectDiff + "%";
-	}
-	if(followersDiff >= 0){
-		document.querySelector("#followersDiff").innerHTML = `+${followersDiff}%`;
-	}else{
-		document.querySelector("#followersDiff").classList.add("negative");
-		document.querySelector("#followersDiff").innerHTML = followersDiff + "%";
-	}
-	if(newsletterDiff >= 0){
-		document.querySelector("#newsletterDiff").innerHTML = `+${newsletterDiff}%`;
-	}else{
-		document.querySelector("#newsletterDiff").classList.add("negative");
-		document.querySelector("#newsletterDiff").innerHTML = newsletterDiff + "%";
-	}
+	evaluateNegative("#viewsDiff", viewsDiff);
+	evaluateNegative("#likesDiff", likesDiff);
+	evaluateNegative("#commentsDiff", commentsDiff);
+	evaluateNegative("#sharesDiff", sharesDiff);
+	evaluateNegative("#engageDiff", engageDiff);
+	evaluateNegative("#postsDiff", postsDiff);
+	evaluateNegative("#connectDiff", connectDiff);
+	evaluateNegative("#followersDiff", followersDiff);
+	evaluateNegative("#newsletterDiff", newsletterDiff);
 }
 
 
@@ -429,8 +386,130 @@ function graphGenerate(dataset, months, id, width, height){
 
 function replaceSocialInfo(sheetData, sheetRow, reportType){
 	if(reportType == "insta"){
+		let instaPrevFollowers = sheetData.values[Number(sheetRow) - 1][1];
+		let instaCurrentFollowers = sheetData.values[Number(sheetRow) - 1][2];
+		let instaPrevLikes = sheetData.values[Number(sheetRow) - 1][3];
+		let instaCurrentLikes = sheetData.values[Number(sheetRow) - 1][4];
+		let instaPrevComments = sheetData.values[Number(sheetRow) - 1][5];
+		let instaCurrentComments = sheetData.values[Number(sheetRow) - 1][6];
+		let instaPrevEngagement = sheetData.values[Number(sheetRow) - 1][7];
+		let instaCurrentEngagement = sheetData.values[Number(sheetRow) - 1][8];
+		let instaPrevViews = sheetData.values[Number(sheetRow) - 1][9];
+		let instaCurrentViews = sheetData.values[Number(sheetRow) - 1][10];
+		let instaFollowersDiff = calcPercentage(instaPrevFollowers, instaCurrentFollowers);
+		let instaLikesDiff = calcPercentage(instaPrevLikes, instaCurrentLikes);
+		let instaCommentsDiff = calcPercentage(instaPrevComments, instaCurrentComments);
+		let instaEngagementDiff = calcPercentage(instaPrevEngagement, instaCurrentEngagement);
+		let instaViewsDiff = calcPercentage(instaPrevViews, instaCurrentViews);
+		document.querySelector("#instaCurrentFollowers").innerText = instaCurrentFollowers;
+		document.querySelector("#instaPrevFollowers").innerText = instaPrevFollowers;
+		document.querySelector("#instaCurrentLikes").innerText = instaCurrentLikes;
+		document.querySelector("#instaPrevLikes").innerText = instaPrevLikes;
+		document.querySelector("#instaCurrentComments").innerText = instaCurrentComments;
+		document.querySelector("#instaPrevComments").innerText = instaPrevComments;
+		document.querySelector("#instaCurrentViews").innerText = instaCurrentViews;
+		document.querySelector("#instaPrevViews").innerText = instaPrevViews;
+		document.querySelector("#instaCurrentEngagementRate").innerText = instaCurrentEngagement;
+		document.querySelector("#instaPrevEngagementRate").innerText = instaPrevEngagement;
+		evaluateNegative("#instaFollowersDiff", instaFollowersDiff);
+		evaluateNegative("#instaEngagementRateDiff", instaEngagementDiff);
+		evaluateNegative("#instaLikesDiff", instaLikesDiff);
+		evaluateNegative("#instaCommentsDiff", instaCommentsDiff);
+		evaluateNegative("#instaViewsDiff", instaViewsDiff);
+	}
+	if(reportType == "fb"){
+		let fbPrevImpress = sheetData.values[Number(sheetRow) - 1][1];
+		let fbCurrentImpress = sheetData.values[Number(sheetRow) - 1][2];
+		let fbPrevPostlikes = sheetData.values[Number(sheetRow) - 1][3];
+		let fbCurrentPostlikes = sheetData.values[Number(sheetRow) - 1][4];
+		let fbPrevPagelikes = sheetData.values[Number(sheetRow) - 1][5];
+		let fbCurrentPagelikes = sheetData.values[Number(sheetRow) - 1][6];
+		let fbPrevPageviews = sheetData.values[Number(sheetRow) - 1][7];
+		let fbCurrentPageviews = sheetData.values[Number(sheetRow) - 1][8];
+		let fbPrevPostViews = sheetData.values[Number(sheetRow) - 1][9];
+		let fbCurrentPostViews = sheetData.values[Number(sheetRow) - 1][10];
+		let fbPrevComments = sheetData.values[Number(sheetRow) - 1][11];
+		let fbCurrentComments = sheetData.values[Number(sheetRow) - 1][12];
+		let fbImpressDiff = calcPercentage(fbPrevImpress, fbCurrentImpress);
+		let fbPostlikesDiff = calcPercentage(fbPrevPostlikes, fbCurrentPostlikes);
+		let fbPagelikesDiff = calcPercentage(fbPrevPagelikes, fbCurrentPagelikes);
+		let fbPageviewsDiff = calcPercentage(fbPrevPageviews, fbCurrentPageviews);
+		let fbPostViewsDiff = calcPercentage(fbPrevPostViews, fbCurrentPostViews);
+		let fbCommentsDiff = calcPercentage(fbPrevComments, fbCurrentComments);
+		document.querySelector("#fbCurrentImpress").innerText = fbCurrentImpress;
+		document.querySelector("#fbPrevImpress").innerText = fbPrevImpress;
+		document.querySelector("#fbCurrentPostlikes").innerText = fbCurrentPostlikes;
+		document.querySelector("#fbPrevPostlikes").innerText = fbPrevPostlikes;
+		document.querySelector("#fbCurrentPagelikes").innerText = fbCurrentPagelikes;
+		document.querySelector("#fbPrevPagelikes").innerText = fbPrevPagelikes;
+		document.querySelector("#fbCurrentPageviews").innerText = fbCurrentPageviews;
+		document.querySelector("#fbPrevPageviews").innerText = fbPrevPageviews;
+		document.querySelector("#fbCurrentPostViews").innerText = fbCurrentPostViews;
+		document.querySelector("#fbPrevPostViews").innerText = fbPrevPostViews;
+		document.querySelector("#fbCurrentComments").innerText = fbCurrentComments;
+		document.querySelector("#fbPrevComments").innerText = fbPrevComments;
+		evaluateNegative("#fbImpressDiff", fbImpressDiff);
+		evaluateNegative("#fbPostlikesDiff", fbPostlikesDiff);
+		evaluateNegative("#fbPagelikesDifff", fbPagelikesDiff);
+		evaluateNegative("#fbPageviewsDiff", fbPageviewsDiff);
+		evaluateNegative("#fbPostViewsDiff", fbPostViewsDiff);
+		evaluateNegative("#fbCommentsDiff", fbCommentsDiff);
 
 	}
+	if(reportType == "tw"){
+		let twPrevFollowrs = sheetData.values[Number(sheetRow) - 1][1];
+		let twCurrentFollowrs = sheetData.values[Number(sheetRow) - 1][2];
+		let twPrevLikes = sheetData.values[Number(sheetRow) - 1][3];
+		let twCurrentLikes = sheetData.values[Number(sheetRow) - 1][4];
+		let twPrevMentions = sheetData.values[Number(sheetRow) - 1][5];
+		let twCurrentMentions = sheetData.values[Number(sheetRow) - 1][6];
+		let twPrevComments = sheetData.values[Number(sheetRow) - 1][7];
+		let twCurrentComments = sheetData.values[Number(sheetRow) - 1][8];
+		let twPrevImpress = sheetData.values[Number(sheetRow) - 1][9];
+		let twCurrentImpress = sheetData.values[Number(sheetRow) - 1][10];
+		let twFollowersDiff = calcPercentage(twPrevFollowrs, twCurrentFollowrs);
+		let twLikesDiff = calcPercentage(twPrevLikes, twCurrentLikes);
+		let twMentionsDiff = calcPercentage(twPrevMentions, twCurrentMentions);
+		let twCommentsDiff = calcPercentage(twPrevComments, twCurrentComments);
+		let twImpressDiff = calcPercentage(twPrevImpress, twCurrentImpress);
+		document.querySelector("#twPrevFollowrs").innerText = twPrevFollowrs;
+		document.querySelector("#twCurrentFollowrs").innerText = twCurrentFollowrs;
+		document.querySelector("#twPrevLikes").innerText = twPrevLikes;
+		document.querySelector("#twCurrentLikes").innerText = twCurrentLikes;
+		document.querySelector("#twPrevMentions").innerText = twPrevMentions;
+		document.querySelector("#twCurrentMentions").innerText = twCurrentMentions;
+		document.querySelector("#twPrevComments").innerText = twPrevComments;
+		document.querySelector("#twCurrentComments").innerText = twCurrentComments;
+		document.querySelector("#twPrevImpress").innerText = twPrevImpress;
+		document.querySelector("#twCurrentImpress").innerText = twCurrentImpress;
+		document.querySelector("#twFollowersDiff").innerText = twFollowersDiff;
+		evaluateNegative("#twFollowersDiff", twFollowersDiff);
+		evaluateNegative("#twLikesDiff", twLikesDiff);
+		evaluateNegative("#twMentionsDiff", twMentionsDiff);
+		evaluateNegative("#twCommentsDiff", twCommentsDiff);
+		evaluateNegative("#twImpressDiff", twImpressDiff);
+	}
+	if(reportType == "nl"){
+		let nlPrevSub = sheetData.values[Number(sheetRow) - 1][1];
+		let nlCurrentSub = sheetData.values[Number(sheetRow) - 1][2];
+		let nlPrevOpenRate = sheetData.values[Number(sheetRow) - 1][3];
+		let nlCurrentOpenRate = sheetData.values[Number(sheetRow) - 1][4];
+		let nlPrevCTR = sheetData.values[Number(sheetRow) - 1][5];
+		let nlCurrentCTR = sheetData.values[Number(sheetRow) - 1][6];
+		let nlSubDiff = calcPercentage(nlPrevSub, nlCurrentSub);
+		let nlOpenRateDiff = calcPercentage(nlPrevOpenRate, nlCurrentOpenRate);
+		let nlCTRDiff = calcPercentage(nlPrevCTR, nlCurrentCTR);
+		document.querySelector("#nlPrevSub").innerText = nlPrevSub;
+		document.querySelector("#nlCurrentSub").innerText = nlCurrentSub;
+		document.querySelector("#nlPrevOpenRate").innerText = nlPrevOpenRate;
+		document.querySelector("#nlCurrentOpenRate").innerText = nlCurrentOpenRate;
+		document.querySelector("#nlPrevCTR").innerText = nlPrevCTR;
+		document.querySelector("#nlCurrentCTR").innerText = nlCurrentCTR;
+		evaluateNegative("#nlSubDiff", nlSubDiff);
+		evaluateNegative("#nlOpenRateDiff", nlOpenRateDiff);
+		evaluateNegative("#nlCTRDiff", nlCTRDiff);
+	}
+
 }
 
 
@@ -443,4 +522,20 @@ function calcPercentage(previous, current){
 	return (((Number(current) - Number(previous))/previous) * 100).toFixed(1);
 }
 
+function evaluateNegative(selector, number){
+	let newNumber;
+	if(number < 0){
+		newNumber = number + "%";
+		document.querySelector(selector).innerText = newNumber;
+		document.querySelector(selector).classList.add("negative");
+	}else{
+		newNumber = "+" + number + "%";
+		document.querySelector(selector).innerText = newNumber;
+	}
+}
 
+
+function grabText(){
+	let textOutput = document.querySelector(".ck.ck-content.ck-editor__editable.ck-rounded-corners.ck-editor__editable_inline").innerHTML;
+	document.querySelector(".more-content").innerHTML = textOutput;
+}
