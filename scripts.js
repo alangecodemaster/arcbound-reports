@@ -304,8 +304,8 @@ function generateViewsAndFollowersGraph(sheetData, sheetRow){
 		let views = sheetData.values[sheetStartingPoint + counter][3];
 		let followers = sheetData.values[sheetStartingPoint + counter][17];
 		let month = sheetData.values[sheetStartingPoint + counter][0];
-		numOfViewsPerMonth.push(views);
-		numOfFollowersPerMonth.push(followers);
+		numOfViewsPerMonth.push(Number(views));
+		numOfFollowersPerMonth.push(Number(followers));
 		theMonths.push(month);
 		counter++;
 	}
@@ -334,6 +334,8 @@ function graphGenerate(dataset, months, id, width, height){
 				dataNum = (data/1000000).toFixed(1) + "M";
 			}else if(data >= 1000){
 				dataNum = (data/1000).toFixed(1) + "K";
+			}else{
+				dataNum = data;
 			}
 			newDiv.innerHTML = `<span class="data">${dataNum}</span><span class="month">${months[index]}</span>`;
 			graph.appendChild(newDiv);
@@ -363,7 +365,7 @@ function graphGenerate(dataset, months, id, width, height){
 				}else if(j == values2){
 					returnVal = Math.floor(largestVal2);
 				}else{
-					startAmount2 += Math.floor(largestVal2 / 4);
+					startAmount2 += Math.floor(largestVal2 / values2);
 					returnVal = startAmount2;
 				}
 				return returnVal;
@@ -514,13 +516,49 @@ function replaceSocialInfo(sheetData, sheetRow, reportType){
 
 
 function generateSocialGraph(sheetData, sheetRow, reportType){
-	
+	let counter = 0;
+	let numberOfDataPoints;
+	let sheetStartingPoint = 1
+	if(Number(sheetRow) - 1 < 12){
+		numberOfDataPoints = Number(sheetRow) - 1;
+	}else{
+		numberOfDataPoints = 12;
+		sheetStartingPoint = Number(sheetRow) - 12;
+	}
+
+	let graphData1 = [];
+	let graphData2 = []
+	let theMonths = [];
+
+	while(counter < numberOfDataPoints){
+		let reportType1 = sheetData.values[sheetStartingPoint + counter][2];
+		let reportType2 = sheetData.values[sheetStartingPoint + counter][4];
+		let month = sheetData.values[sheetStartingPoint + counter][0];
+		graphData1.push(Number(reportType1));
+		graphData2.push(Number(reportType2));
+		theMonths.push(month);
+		counter++;
+	}
+
+	if(reportType == "fb"){
+		graphGenerate(graphData1, theMonths, `#${reportType}-page .indiv-stat-box:nth-child(1) .col-right`, 247, 110);
+		graphGenerate(graphData2, theMonths, `#${reportType}-page .indiv-stat-box:nth-child(2) .col-right`, 247, 110);
+	}else{
+		graphGenerate(graphData1, theMonths, `#${reportType}-page .indiv-stat-box:nth-child(1) .col-right`, 400, 110);
+		graphGenerate(graphData2, theMonths, `#${reportType}-page .indiv-stat-box:nth-child(2) .col-right`, 400, 110);
+	}
+	if(reportType == "nl"){
+		console.log(d3.max(graphData2));
+		console.log(graphData2);
+	}
 }
+
 
 
 function calcPercentage(previous, current){
 	return (((Number(current) - Number(previous))/previous) * 100).toFixed(1);
 }
+
 
 function evaluateNegative(selector, number){
 	let newNumber;
@@ -537,5 +575,7 @@ function evaluateNegative(selector, number){
 
 function grabText(){
 	let textOutput = document.querySelector(".ck.ck-content.ck-editor__editable.ck-rounded-corners.ck-editor__editable_inline").innerHTML;
-	document.querySelector(".more-content").innerHTML = textOutput;
+	if(textOutput !== ''){
+		document.querySelector(".more-content").innerHTML = textOutput;
+	}
 }
