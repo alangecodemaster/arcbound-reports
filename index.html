@@ -17,18 +17,18 @@
 
 	<div id="form-container">
 		<h1>Arcbound Report Template</h1>
-		<p class="form-description">Enter the following form field data to automatically generate your monthly client report. <br>
+		<p class="form-description">Enter the following form field data to automatically generate your monthly client report.
+			<br><em><a href="#" onclick="showPopup()">Click here for instructions</a></em><br>
+			<br>
 			<em>For quesions or help, contact Anton: <br> anton@arcbound.com</em>
 		</p>
 		<ol class="instructions">
 			<li>
 				<label for="client-name">Client Name</label>
-				<p><em>Name as it is written in Google Sheet</em></p>
 				<input type="text" id="client-name">
 			</li>
 			<li>
 				<label for="google-sheet">Google Sheet Url</label>
-				<p><em>Be sure to follow <a class="instructions-link" onclick="showPopup()">these instructions</a> for formatting your sheet.</em></p>
 				<input type="text" id="google-sheet">
 			</li>
 			<li>
@@ -36,7 +36,7 @@
 				<input type="number" id="google-sheet-num">
 			</li>
 			<li>
-				<label>Check additional reports you would like to generate:</label>
+				<label>Check other reports you would like to generate:</label>
 				<ul class="checkboxes">
 					<li>
 						<label for="insta">Instagram</label>
@@ -61,6 +61,11 @@
 						<input type="checkbox" id="nl">
 						<label for="nl" class="check"><span>✓</span></label>
 						<input type="number" class="social-row-number" placeholder="Row #" id="nlRow">
+					</li>
+					<li>
+						<label for="quarterly">Quarterly Report</label>
+						<input type="checkbox" id="quarterly">
+						<label for="quarterly" class="check"><span>✓</span></label>
 					</li>
 				</ul>
 				
@@ -88,17 +93,47 @@
 	<div class="popup">
 		<div class="background" onclick="showPopup()"></div>
 		<div class="pop-content">
-			<h1>How To Format Your Google Sheet</h1>
+			<h1>How To Use This Report Generator</h1>
 			<h2>First Time Setup</h2>
-			<p>If this is your first time using this reporting tool, do the following:</p>
+			<p><strong>If this is your first time using this reporting tool, do the following:</p></strong></p>
 			<ul>
-				<li>Open <a href="https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0" target="_blank">this link</a> and copy the report into your drive.</li>
-				<li>Name the document whatever you like. Change the client tab name to the client's name, but don't change the other tab names.</li>
+				<li>Open <a href="https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0" target="_blank">this Google Sheet</a> and copy the report into your Google drive. This is the <strong>MONTHLY</strong> report.</li>
+				<li>Name the document whatever you like (probably the client's name followed by "Monthly Reports". Change the client tab name to the client's name, but don't change the other tab names.</li>
 				<li>Add the respective data to each sheet tab.</li>
-				<li>When ready, share the document so that anyone with the link can edit it.</li>
+				<li>When ready, share the document so that anyone with the link can view it.</li>
 			</ul>
-			<h2>2nd + Reports</h2>
-			<p>If you have already set up a client report, you can keep adding rows to that report each month with new data. It is recommended that you don't delete previous rows of data.</p>
+			<p><strong>You will also need to do the same thing to generate quarterly reports:</p></strong></p>
+			<ul>
+				<li>Open <a href="">this Google Sheet</a> and copy the report into your Google drive in the same location as your Monthly report.</li>
+				<li>Name the document (probably the client's name followed by Quarterly Reports". Change the client tab name to the client's name, but don't change the other tab names.</li>
+				<li>Copy the monthly report sheet URL into each of the formulas in the new document. Copy and paste the formulas from the previous cells into the next cell to aggregate data from the monthly report.</li>
+			</ul>
+			<h2>Running a Report</h2>
+			<p>To run a report using this tool:</p>
+			<ul>
+				<li>Enter the client's name exactly as it is listed in the report sheets.</li>
+				<li>Enter the URL of the report sheet from which you are taking data (could be the monthly OR the quarterly report sheet).</li>
+				<li>Enter the line number for which report you would like to generate. This allows you to generate previous month reports as well.</li>
+				<li>Select other reports you would like to run.</li>
+				<li>If you are generating another social channel report, you will enter the line number from the corresponding sheet. You won't be able to generate a report from a different month, however. The report will all be generated with the same month as the main, Instagram report.</li>
+				<li>If you are generating a quarterly report, also select "Quarterly Report" and be sure the URL is the quarterly spreadsheet.</li>
+				<li>Add any additional information, such as OKRs or any other wins or information you would like to include in the report.
+					<ul>
+						<li>Make sure to add the titles correctly and size any images before uploading them.</li>
+					</ul>
+				</li>
+				<li>Run the report.</li>
+				<li>Fix any indicated errors (if any) and re-run the report.</li>
+			</ul>
+			<h2>Adjusting the Report</h2>
+			<p>After you run the report, the system will take the data from your Google sheet and utilize it on the different parts of the report. If there is an error or misspelling, you don't necessarily have to rerun the report. Follow the steps below:</p> 
+			<ul>
+				<li>You can change almost any text in the report by hovering and clicking on the text.</li>
+				<li>Some may want to add a comma to numbers to separate the 1000s column. The report doesn't automatically generate those, so feel free to add them in.</li>
+				<li>Adjust any other text to fit the report accordingly.</li>
+			</ul>
+
+
 		</div>
 	</div>
 

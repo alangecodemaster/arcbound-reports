@@ -1,0 +1,47 @@
+=SUM(IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!C2"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!C3"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!C4"))
+=SUM(IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!C5"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!C6"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!C7"))
+=SUM(IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!C8"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!C9"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!C10"))
+=SUM(IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!C11"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!C12"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!C13"))
+
+
+
+
+
+=SUM(IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!E2"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!E3"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!E4"))
+=SUM(IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!E5"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!E6"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!E7"))
+=SUM(IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!E8"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!E9"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!E10"))
+=SUM(IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!E11"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!E12"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!E13"))
+
+
+
+
+
+=SUM(IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!G2"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!G3"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!G4"))
+=SUM(IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!G5"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!G6"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!G7"))
+=SUM(IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!G8"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!G9"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!G10"))
+=SUM(IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!G11"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!G12"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!G13"))
+
+
+
+
+=SUM(IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!I2"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!I3"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!I4"))
+=SUM(IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!I5"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!I6"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!I7"))
+=SUM(IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!I8"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!I9"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!I10"))
+=SUM(IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!I11"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!I12"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!I13"))
+
+
+
+
+=SUM(IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!K2"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!K3"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!K4"))
+=SUM(IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!K5"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!K6"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!K7"))
+=SUM(IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!K8"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!K9"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!K10"))
+=SUM(IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!K11"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!K12"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!K13"))
+
+
+
+
+
+=SUM(IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!M2"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!M3"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!M4"))
+=SUM(IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!M5"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!M6"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!M7"))
+=SUM(IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!M8"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!M9"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!M10"))
+=SUM(IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!M11"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!M12"), IMPORTRANGE("https://docs.google.com/spreadsheets/d/1rVARtvMV3zpuRQNmps0g5ijNDeHytifNIFZARDpay18/edit#gid=0", "Newsletter!M13"))

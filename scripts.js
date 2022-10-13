@@ -17,9 +17,8 @@ window.addEventListener("load", ()=>{
 
 
 //global vars
-const months = [{'Jan': 31, 'Feb': 28, 'Mar': 31, 'Apr': 30, 'May': 31, 'Jun': 30, 'Jul': 31, 'Aug': 31, 'Sep': 30, 'Oct': 31, 'Nov': 30, 'Dec': 31}];
-const prevMonth = [
-	{
+const months = {'Jan': 31, 'Feb': 28, 'Mar': 31, 'Apr': 30, 'May': 31, 'Jun': 30, 'Jul': 31, 'Aug': 31, 'Sep': 30, 'Oct': 31, 'Nov': 30, 'Dec': 31};
+const prevMonth = {
 		"Jan": "Dec",
 		"Feb": "Jan",
 		"Mar": "Feb",
@@ -32,8 +31,7 @@ const prevMonth = [
 		"Oct": "Sep",
 		"Nov": "Oct",
 		"Dec": "Nov"
-	}
-];
+};
 const longMonth = [
 	{
 		"Jan": "January",
@@ -50,6 +48,20 @@ const longMonth = [
 		"Dec": "December"
 	}
 ];
+const prevQuarter = {
+	"Mar": "Jan",
+	"Jun": "Apr",
+	"Sep": "Jul",
+	"Dec": "Oct"
+}
+const quarterValues = {
+	"Dec": "Q4",
+	"Sep": "Q3",
+	"Jun": "Q2",
+	"Mar": "Q1"
+}
+let isQuarterly = false;
+
 // when button is clicked to run report, this function fires and triggers all other functions
 // functional programming is used to prevent bugs
 async function submitReport(){
@@ -58,9 +70,14 @@ async function submitReport(){
 		return;
 	}
 
+	if(formData.quarterly){
+		isQuarterly = true;
+	}
+
 	// get the linkedin client URL structure and make the request
 	const clientNameRequestURL = parseGoolgeSheet(formData, formData.client_name);
 	const nameFetch = await makeFetchRequest(clientNameRequestURL, "name", formData.sheetRow);
+
 	// checks social data
 	socialDataChecked(formData);
 
@@ -134,6 +151,7 @@ function getFormData(){
 		"facebook": document.querySelector("#fb").checked ? true : false,
 		"twitter": document.querySelector("#tw").checked ? true : false,
 		"newsletter": document.querySelector("#nl").checked ? true : false,
+		"quarterly": document.querySelector("#quarterly").checked ? true : false,
 		"instaSheetRow": document.querySelector("#instaRow").value,
 		"fbSheetRow": document.querySelector("#fbRow").value,
 		"twSheetRow": document.querySelector("#twRow").value,
@@ -266,13 +284,25 @@ function replaceNameLinkedinInfo(sheetData, sheetRow){
 	document.querySelector("#crossEName4").innerHTML = crossEName4;
 	document.querySelector("#crossEAmount4").innerHTML = crossEAmount4;
 
+
 	//applies date range for whole document
-	document.querySelectorAll(".current .date").forEach(date=>{
-		date.innerHTML = `${reportMonth} 1 - ${reportMonth} ${months[0][reportMonth]}`;
-	});
-	document.querySelectorAll(".last-month .date").forEach(date=>{
-		date.innerHTML = `${prevMonth[0][reportMonth]} 1 - ${months[0][prevMonth[0][reportMonth]]}`;
-	});
+	if(isQuarterly){
+		let previousQuarter = prevQuarter[reportMonth];
+		let beforePrevQuarterMonth = prevQuarter[prevMonth[previousQuarter]];
+		document.querySelectorAll(".current .date").forEach(date=>{
+			date.innerHTML = `${previousQuarter} 1 - ${reportMonth} ${months[reportMonth]}`;
+		});
+		document.querySelectorAll(".last-month .date").forEach(date=>{
+			date.innerHTML = `${beforePrevQuarterMonth} 1 - ${prevMonth[prevQuarter[reportMonth]]} ${months[prevMonth[prevQuarter[reportMonth]]]}`;
+		});
+	}else{
+		document.querySelectorAll(".current .date").forEach(date=>{
+			date.innerHTML = `${reportMonth} 1 - ${reportMonth} ${months[reportMonth]}`;
+		});
+		document.querySelectorAll(".last-month .date").forEach(date=>{
+			date.innerHTML = `${prevMonth[reportMonth]} 1 - ${reportMonth} ${months[prevMonth[reportMonth]]}`;
+		});
+	}
 
 	evaluateNegative("#viewsDiff", viewsDiff);
 	evaluateNegative("#likesDiff", likesDiff);
@@ -299,11 +329,16 @@ function generateViewsAndFollowersGraph(sheetData, sheetRow){
 	let numOfViewsPerMonth = [];
 	let numOfFollowersPerMonth = [];
 	let theMonths = [];
+	if(isQuarterly){
 
+	}
 	while(counter < numberOfDataPoints){
 		let views = sheetData.values[sheetStartingPoint + counter][3];
 		let followers = sheetData.values[sheetStartingPoint + counter][17];
 		let month = sheetData.values[sheetStartingPoint + counter][0];
+		if(isQuarterly){
+			month = quarterValues[month];
+		}
 		numOfViewsPerMonth.push(Number(views));
 		numOfFollowersPerMonth.push(Number(followers));
 		theMonths.push(month);
@@ -318,7 +353,7 @@ function generateViewsAndFollowersGraph(sheetData, sheetRow){
 
 function graphGenerate(dataset, months, id, width, height){
 		const padding = 25;
-		const yScaled = (height - padding)/(Math.max(...dataset)*1.2);
+		const yScaled = (height - padding*2)/(Math.max(...dataset)*1.2);
 		const graph = document.querySelector(id);
 
 
@@ -337,7 +372,7 @@ function graphGenerate(dataset, months, id, width, height){
 			}else{
 				dataNum = data;
 			}
-			newDiv.innerHTML = `<span class="data">${dataNum}</span><span class="month">${months[index]}</span>`;
+			newDiv.innerHTML = `<span contenteditable="true" class="data">${dataNum}</span><span contenteditable="true" class="month">${months[index]}</span>`;
 			graph.appendChild(newDiv);
 		});
 
@@ -350,7 +385,7 @@ function graphGenerate(dataset, months, id, width, height){
 		const paddingBottom = 25;
 
 		let values2 = 1;
-		let largestVal2 = Math.ceil((d3.max(dataset)*1.2)/100)*100;
+		let largestVal2 = Math.ceil((d3.max(dataset)*1.2)/10)*10;
 		let interval2 = (height - padding*2)/values2;
 		let distance2 = 0 + paddingBottom;
 		let startAmount2 = 0
@@ -371,7 +406,8 @@ function graphGenerate(dataset, months, id, width, height){
 				return returnVal;
 			})
 			.style('bottom', `${distance2}px`)
-			.attr('class', 'y-val');
+			.attr('class', 'y-val')
+			.attr('contenteditable', 'true');
 
 			distance2 += interval2;
 		}
@@ -534,6 +570,9 @@ function generateSocialGraph(sheetData, sheetRow, reportType){
 		let reportType1 = sheetData.values[sheetStartingPoint + counter][2];
 		let reportType2 = sheetData.values[sheetStartingPoint + counter][4];
 		let month = sheetData.values[sheetStartingPoint + counter][0];
+		if(isQuarterly){
+			month = quarterValues[month];
+		}
 		graphData1.push(Number(reportType1));
 		graphData2.push(Number(reportType2));
 		theMonths.push(month);
