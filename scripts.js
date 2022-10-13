@@ -74,6 +74,10 @@ async function submitReport(){
 		isQuarterly = true;
 	}
 
+	if(isQuarterly){
+		document.querySelector("#monthly-quarterly").innerText = "Quarterly";
+	}
+
 	// get the linkedin client URL structure and make the request
 	const clientNameRequestURL = parseGoolgeSheet(formData, formData.client_name);
 	const nameFetch = await makeFetchRequest(clientNameRequestURL, "name", formData.sheetRow);
