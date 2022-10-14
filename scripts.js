@@ -258,7 +258,11 @@ function replaceNameLinkedinInfo(sheetData, sheetRow){
 	let followersDiff = calcPercentage(prevFollowers, currentFollowers);
 	let newsletterDiff = calcPercentage(prevNewsSub, currentNewsSub);
 
-	document.querySelector("#reportMonth").innerHTML = longMonth[0][reportMonth] + " " + new Date().getFullYear();
+	if(isQuarterly){
+		document.querySelector("#reportMonth").innerHTML = quarterValues[reportMonth] + " " + new Date().getFullYear();
+	}else{
+		document.querySelector("#reportMonth").innerHTML = longMonth[0][reportMonth] + " " + new Date().getFullYear();
+	}
 	document.querySelector("#clientName").innerHTML = clientName;
 	document.querySelector("#prevViews").innerHTML = prevViews;
 	document.querySelector("#currentViews").innerHTML = currentViews;
