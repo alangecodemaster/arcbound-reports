@@ -301,14 +301,14 @@ function replaceNameLinkedinInfo(sheetData, sheetRow){
 			date.innerHTML = `${previousQuarter} 1 - ${reportMonth} ${months[reportMonth]}`;
 		});
 		document.querySelectorAll(".last-month .date").forEach(date=>{
-			date.innerHTML = `${beforePrevQuarterMonth} 1 - ${prevMonth[prevQuarter[reportMonth]]} ${months[prevMonth[prevQuarter[reportMonth]]]}`;
+			date.innerHTML = `${beforePrevQuarterMonth} 1 - ${beforePrevQuarterMonth} ${months[prevMonth[prevQuarter[reportMonth]]]}`;
 		});
 	}else{
 		document.querySelectorAll(".current .date").forEach(date=>{
 			date.innerHTML = `${reportMonth} 1 - ${reportMonth} ${months[reportMonth]}`;
 		});
 		document.querySelectorAll(".last-month .date").forEach(date=>{
-			date.innerHTML = `${prevMonth[reportMonth]} 1 - ${reportMonth} ${months[prevMonth[reportMonth]]}`;
+			date.innerHTML = `${prevMonth[reportMonth]} 1 - ${prevMonth[reportMonth]} ${months[prevMonth[reportMonth]]}`;
 		});
 	}
 
