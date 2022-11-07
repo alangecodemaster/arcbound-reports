@@ -31,7 +31,7 @@
 .pop-content h2{padding-left: 0; font-size: 25px;}
 
 @media print{
-	#form-container{
+	#form-container, .add-page{
 		display: none;
 	}
 }

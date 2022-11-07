@@ -626,3 +626,11 @@ function grabText(){
 		document.querySelector(".more-content").innerHTML = textOutput;
 	}
 }
+
+
+let pages = 1;
+function addAnotherPage(){
+	pages++;
+	let newHeight = (pages * 11) + "in";
+	document.querySelector(".second-page").style.height = newHeight;
+}
