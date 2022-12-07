@@ -3,15 +3,6 @@ function showPopup(){
 	document.querySelector(".popup").classList.toggle("active");
 }
 
-// adds WYSIWYG editor
-window.addEventListener("load", ()=>{
-  ClassicEditor
-    .create( document.querySelector( '#other' ) )
-    .catch( error => {
-    console.error( error );
-  } );
-});
-
 
 
 
@@ -150,7 +141,7 @@ function getFormData(){
 		"client_name": document.querySelector("#client-name").value,
 		"googleSheet": document.querySelector("#google-sheet").value,
 		"sheetRow": document.querySelector("#google-sheet-num	").value,
-		"textHTML": document.querySelector(".ck.ck-content.ck-editor__editable.ck-rounded-corners.ck-editor__editable_inline").innerHTML,
+		"textHTML": document.querySelector("#editor-container .ql-editor").innerHTML,
 		"instagram": document.querySelector("#insta").checked ? true : false,
 		"facebook": document.querySelector("#fb").checked ? true : false,
 		"twitter": document.querySelector("#tw").checked ? true : false,
@@ -621,7 +612,7 @@ function evaluateNegative(selector, number){
 
 
 function grabText(){
-	let textOutput = document.querySelector(".ck.ck-content.ck-editor__editable.ck-rounded-corners.ck-editor__editable_inline").innerHTML;
+	let textOutput = document.querySelector("#editor-container .ql-editor").innerHTML;
 	if(textOutput !== ''){
 		document.querySelector(".more-content").innerHTML = textOutput;
 	}
